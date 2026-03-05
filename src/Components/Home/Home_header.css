@@ -1,0 +1,136 @@
+.header {
+  width: 100%;
+  height: 12vh;
+  background-color: rgb(85, 86, 85);
+  /* background-color: rgb(37, 78, 64); */
+  position: sticky;   
+  top: 0;
+  left: 0;
+  z-index: 100000000000000000000000000000000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid rgb(219, 218, 212); */
+  /* box-shadow: 2px 1px 2px rgb(14, 224, 31); */
+}
+
+.header-container {
+  min-width: 100%;
+  /* height: 80px; */
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 3rem;
+  /* border: 2px solid pink; */
+}
+
+.logo {
+  /* border: 2px solid red; */
+  width: 120px;
+  height: 8vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+.navbar {
+  position: relative;
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1.3rem;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -5px;
+  background-color: #22c55e;
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #22c55e;
+}
+
+.baricon {
+  display: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+  .baricon {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    font-size: 1rem;
+    background-color: rgb(37, 78, 64);
+    flex-direction: column;
+    width: 200px;
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-radius: 8px;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  nav.active {
+    display: flex;
+    animation: slideDown 0.3s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (max-width:450px) {
+
+  .header-container{
+    padding: 0 1.5rem;
+  }
+  
+}

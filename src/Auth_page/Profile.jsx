@@ -22,7 +22,7 @@ export default function Profile() {
 
       try {
         const res = await fetch(
-          `${API_URL}user/profile/${userId}/`,
+          `${API_URL}/api/user/profile/${userId}/`,
           {
             method: "GET",
             headers: {
@@ -61,7 +61,7 @@ export default function Profile() {
               <img
                 src={
                   profile.avatar
-                    ? `http://localhost:8000${profile.avatar}`
+                    ? `https://farmerapp-backend-jhru.onrender.com${profile.avatar}`
                     : logo
                 }
                 alt={profile.username}

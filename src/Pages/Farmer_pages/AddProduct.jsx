@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AddProduct.css";
+import { API_URL } from "../../config";
 
 export default function AddProduct() {
   const navigate = useNavigate();
@@ -58,7 +59,7 @@ export default function AddProduct() {
 
     // farmer_id is set in backend, do not send from frontend
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/farmer/addproduct/", {
+      const response = await fetch(`${API_URL}/api/farmer/addproduct/`, {
         method: "POST",
         headers: {
         Authorization: `Bearer ${token}`,

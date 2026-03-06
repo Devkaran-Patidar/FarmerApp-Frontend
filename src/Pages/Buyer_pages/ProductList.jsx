@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 const API_BASE = "http://127.0.0.1:8000"; 
 import "./productlist.css"
+import { API_URL } from "../../config";
 
 const ProductPage = ({setCartCount,cartCount}) => {
   const [products, setProducts] = useState([]);
@@ -14,7 +15,7 @@ const ProductPage = ({setCartCount,cartCount}) => {
   // Fetch all products
   const fetchProducts = async (query ="",cat = "") => {
     try {
-      const res = await fetch(`${API_BASE}/api/farmer/allproducts/?search=${query}&category=${cat}`);
+      const res = await fetch(`${API_URL}/api/farmer/allproducts/?search=${query}&category=${cat}`);
       const data = await res.json();
       setProducts(data);
       // console.log(data)
@@ -26,7 +27,7 @@ const ProductPage = ({setCartCount,cartCount}) => {
   // Fetch cart count
   const fetchCart = async () => {
     try {
-      const res = await fetch(`${API_BASE}/api/farmer/view-cart/`, {
+      const res = await fetch(`${API_URL}/api/farmer/view-cart/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -55,7 +56,7 @@ const ProductPage = ({setCartCount,cartCount}) => {
     return;
   }
 
-  const res = await fetch(`${API_BASE}/api/farmer/add-to-cart/`, {
+  const res = await fetch(`${API_URL}/api/farmer/add-to-cart/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 function FarmerOrders() {
   const [orders, setOrders] = useState([]);
@@ -12,7 +13,7 @@ function FarmerOrders() {
     const token = localStorage.getItem("access_token");
 
     const res = await axios.get(
-      "http://127.0.0.1:8000/api/farmer/orders/",
+      `${API_URL}/api/farmer/orders/`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -26,7 +27,7 @@ const markDelivered = async (itemId) => {
   const token = localStorage.getItem("access");
 
   await axios.patch(
-    `http://127.0.0.1:8000/api/farmer/order-item/${itemId}/deliver/`,
+    `${API_URL}/api/farmer/order-item/${itemId}/deliver/`,
     {},
     {
       headers: {

@@ -1,3 +1,4 @@
+import { API_URL } from "../../config";
 import "./ContactForm.css"
 import axios from "axios";
 export default function ContactForm(){
@@ -10,7 +11,7 @@ export default function ContactForm(){
                 message: e.target.msg.value   
                };
               console.log(data)
-             await axios.post("http://127.0.0.1:8000/api/contactapp/contact/",data)
+             await axios.post(`${API_URL}/api/contactapp/contact/`,data)
                .then(response =>{
                 alert("Message Send Successfully !");
                 console.log(response.data)

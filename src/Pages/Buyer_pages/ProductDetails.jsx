@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./ProductDetails.css";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../../config";
 
-const API_BASE = "http://127.0.0.1:8000";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const token = localStorage.getItem("access_token");
 
   useEffect(() => {
-    fetch(`${API_BASE}/api/farmer/product/${id}/`, {
+    fetch(`${API_URL}/api/farmer/product/${id}/`, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())

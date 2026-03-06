@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./EditProdt.css";
+import { API_URL } from "../../config";
 
 export default function EditProduct() {
   const { id } = useParams();
@@ -26,7 +27,7 @@ export default function EditProduct() {
 
   // ✅ Load product data
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/farmer/myproduct/", {
+    fetch(`${API_URL}/api/farmer/myproduct/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -84,7 +85,7 @@ export default function EditProduct() {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/farmer/editproduct/${id}/`,
+        `${API_URL}/api/farmer/editproduct/${id}/`,
         {
           method: "PUT",
           headers: {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MyProducts.css";
+import { API_URL } from "../../config";
 
 export default function MyProducts() {
   const [products, setProducts] = useState([]);
@@ -9,7 +10,7 @@ export default function MyProducts() {
 
   const fetchProducts = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/farmer/myproduct/", {
+      const res = await fetch(`${API_URL}/api/farmer/myproduct/`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -37,7 +38,7 @@ export default function MyProducts() {
     if (!window.confirm("Are you sure you want to delete?")) return;
 
     await fetch(
-      `http://127.0.0.1:8000/api/farmer/deleteproduct/${id}/`,
+      `${API_URL}/api/farmer/deleteproduct/${id}/`,
       {
         method: "DELETE",
         headers: {
@@ -94,9 +95,9 @@ export default function MyProducts() {
                   <div className="location">
                    📍  {item.location} | 🚚 {item.delivery_option}
                   </div>
-                  <div className="buttons">
-                   <button className="cart-btn" onClick={(e) =>{ e.stopPropagation();  navigate(`/farmerhome/editproduct/${item.id}`)  }}>Edit</button>
-                    <button className="buy-btn"  onClick={(e) =>{ e.stopPropagation(); handleDelete(item.id)}}>Delete</button>
+                  <div className="buttonns">
+                   <button className="cartt-btn" onClick={(e) =>{ e.stopPropagation();  navigate(`/farmerhome/editproduct/${item.id}`)  }}>Edit</button>
+                    <button className="buyy-btn"  onClick={(e) =>{ e.stopPropagation(); handleDelete(item.id)}}>Delete</button>
                  </div>
                 </div>
             </div>

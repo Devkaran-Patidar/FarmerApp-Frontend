@@ -24,7 +24,7 @@ export default function Receipt() {
       return;
     }
 
-    fetch(`${API_URL}farmer/orders/${orderId}/`, {
+    fetch(`${API_URL}/api/farmer/orders/${orderId}/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -54,7 +54,7 @@ export default function Receipt() {
     const fetchProfile = async () => {
       try {
         const res = await fetch(
-          `${API_BASE}/api/user/profile/${userId}/`,
+          `${API_URL}/api/user/profile/${userId}/`,
           {
             method: "GET",
             headers: {

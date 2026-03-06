@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 function FarmerEarning() {
   const [earning, setEarning] = useState(0);
@@ -16,7 +17,7 @@ function FarmerEarning() {
       const token = localStorage.getItem("access_token");
 
       const res = await axios.get(
-        "http://127.0.0.1:8000/api/farmer/earning/",
+        `${API_URL}/api/farmer/earning/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

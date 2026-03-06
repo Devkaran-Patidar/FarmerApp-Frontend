@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./OrderHistory.css"
+import { API_URL } from "../../config";
 export default function OrderHistory() {
-  const API_BASE = "http://127.0.0.1:8000";
   const token = localStorage.getItem("access_token");
   const navigate = useNavigate();
 
@@ -12,7 +12,7 @@ export default function OrderHistory() {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const res = await fetch(`${API_BASE}/api/farmer/myorders/`, {
+        const res = await fetch(`${API_URL}/api/farmer/myorders/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

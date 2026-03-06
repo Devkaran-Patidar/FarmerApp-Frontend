@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 import emptycart from "../../assets/emptyCart.png";
-const API_BASE = "http://127.0.0.1:8000";
+import { API_URL } from "../../config";
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -12,7 +12,7 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const fetchCart = async () => {
-    const res = await fetch(`${API_BASE}/api/farmer/view-cart/`, {
+    const res = await fetch(`${API_URL}/api/farmer/view-cart/`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -31,7 +31,7 @@ const CartPage = () => {
   }, []);
 
   const handleRemove = async (itemId) => {
-    await fetch(`${API_BASE}/api/farmer/remove-cart/${itemId}/`, {
+    await fetch(`${API_URL}/api/farmer/remove-cart/${itemId}/`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -43,7 +43,7 @@ const CartPage = () => {
   const handleUpdateQuantity = async (itemId, quantity) => {
     if (quantity < 1) return;
 
-    await fetch(`${API_BASE}/api/farmer/update-cart/${itemId}/`, {
+    await fetch(`${API_URL}/api/farmer/update-cart/${itemId}/`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

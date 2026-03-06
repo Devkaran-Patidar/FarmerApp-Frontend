@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./ShopNow.css"
-const API_BASE = "http://127.0.0.1:8000";
+import { API_URL } from "../../config";
 
 const ShopNow = () => {
   const location = useLocation();
@@ -20,7 +20,7 @@ const ShopNow = () => {
 
   const handleConfirmPurchase = async () => {
   try {
-    const res = await fetch(`${API_BASE}/api/farmer/create-order/`, {
+    const res = await fetch(`${API_URL}/api/farmer/create-order/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

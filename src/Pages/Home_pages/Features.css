@@ -74,6 +74,7 @@
     width: 16rem;
     padding: 0.3rem;
   }
+  .
 }
 
 @media (max-width: 480px) {
@@ -81,7 +82,7 @@
     grid-template-columns: 1fr;
   }
   .features-section{
-    padding: 1rem 2rem;
+    padding: 2rem 1rem;
 
   }
   .feature-card{

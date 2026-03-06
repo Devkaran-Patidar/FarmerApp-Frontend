@@ -66,4 +66,26 @@
   .features-grid {
     grid-template-columns: 1fr;
   }
+  .features-section{
+    padding: 1rem 2rem;
+
+  }
+  .feature-card{
+    width: 16rem;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  .features-section{
+    padding: 1rem 2rem;
+
+  }
+  .feature-card{
+    width: 15rem;
+    padding: 0.3rem;
+  }
 }

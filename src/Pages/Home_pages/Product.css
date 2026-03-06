@@ -43,7 +43,7 @@
 
 .pro-img{
   height: 12rem;
-  border: 2px solid rgb(14, 13, 13);
+  /* border: 2px solid rgb(14, 13, 13); */
   border-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -64,4 +64,20 @@
 .pro-cards h4 ,p{
   margin: 0;
   padding: 6px ;
+}
+
+
+
+@media (max-width:650px) {
+    .product-section{
+      padding: 1rem 2rem;
+
+    }
+    .product-heading{
+      font-size: 1.1rem;
+    }
+
+    .pro-cards{
+      width: 13rem;
+    }
 }

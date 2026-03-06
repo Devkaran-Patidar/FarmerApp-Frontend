@@ -90,7 +90,9 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-
+   .header{
+    height: 8vh;
+   }
   .baricon {
     display: block;
   }

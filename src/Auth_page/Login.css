@@ -1,8 +1,9 @@
 .login-section{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     min-height: 88vh;
+    margin-top: 5rem;
     /* background: linear-gradient(rgb(164, 229, 244), #ddf7a5, #4cac4c); */
     /* padding-top: 5rem; */
 }

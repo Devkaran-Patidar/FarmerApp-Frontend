@@ -3,7 +3,8 @@
 .signup-section {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:start;
+    margin-top: 5rem;
     min-height: 88vh;
     /* background: linear-gradient(rgb(164, 229, 244), #ddf7a5, #4cac4c); */
     /* padding-top: 8rem; */

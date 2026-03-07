@@ -47,11 +47,11 @@ export default function Product() {
               <h4>Vegetables</h4>
               <p>Fresh & Organic</p>
           </div>
-          <div className="pro-cards">
+          {/* <div className="pro-cards">
               <h1>🍎</h1>
               <h4>Vegetables</h4>
               <p>Fresh & Organic</p>
-          </div>
+          </div> */}
 
 
       </div>

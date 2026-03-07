@@ -39,12 +39,12 @@ export default function Contact() {
         </div>
 
         {/* Working Hours Card */}
-        <div className="contact-card">
+        <div className="contact-card mess">
           <div className="icon clock">
             <MessageCircle size={30}/>
           </div>
-          <Link to ="contactform" ><h3>Mesage Here..</h3></Link>
-          <p>24/7 - Always Available</p>
+          <Link to ="contactform" ><h3 className="mess">Mesage Here..</h3></Link>
+          <p className="highlight">24/7 - Always Available</p>
         </div>
       </div>
     </div>

@@ -81,13 +81,15 @@
   .mainhome-heading {
     font-size: 2rem;
   }
-
-  .buttons {
+  .mainhome-hero{
+    min-height: 92vh;
+  }
+  .buttons-h {
     gap: 3rem;
     flex-direction: column;
   }
 
-  .btn {
+  .btn-h {
     width: 100%;
     max-width: 250px;
     padding: 1rem 2rem;
@@ -98,7 +100,7 @@
   .mainhome-heading {
     font-size: 1.8rem;
   }
-  .btn {
+  .btn-h {
     padding: 1rem 2rem;
     font-size: 1rem;
   }
@@ -108,7 +110,7 @@
   .mainhome-heading {
     font-size: 1.2rem;
   }
-  .btn {
+  .btn-h {
     padding: 0.5rem 0.8rem;
     font-size: 0.4rem;
   }

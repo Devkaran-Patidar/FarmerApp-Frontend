@@ -1,6 +1,6 @@
 import "./Product.css";
 import img1 from "../../assets/product_image/ghee.png"
-import img2 from "../../assets/product_image/honey2.png"
+import img2 from "../../assets/product_image/honey.png"
 import img3 from "../../assets/product_image/image.png"
 import img4 from "../../assets/product_image/image copy.png"
 import img5 from "../../assets/product_image/image copy 5.png"

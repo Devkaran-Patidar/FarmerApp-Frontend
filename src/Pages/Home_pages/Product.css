@@ -7,6 +7,7 @@
  align-items: center;
  gap: 2rem;
  margin-bottom: 2rem;
+ background-color:#999999;
 }
 
 
@@ -29,35 +30,43 @@
 
 .pro-cards{
   /* border: 1px solid rgb(19, 19, 19); */
-  background-color: rgb(214, 243, 206);
+  background-color: rgb(255, 255, 255);
   border-radius: 20px;
   width: 15rem;
   height: 20rem;
-  padding: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:space-between;
   align-items:center;
-  gap: 0.4rem;
-  
+  overflow: hidden;
 }
 
 .pro-img{
   height: 12rem;
   /* border: 2px solid rgb(14, 13, 13); */
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
   /* margin: 0.3rem; */
 
-  
+  margin-top: 1.5rem;
+  padding: 1px 15px;
+}
+
+.pro-cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
 }
 
 
 .pro-cards:hover{
-  transform: scale(1.1);
+  transform: scale(1);
   box-shadow: 0px 0px 10px rgb(52, 86, 115);
 
 }

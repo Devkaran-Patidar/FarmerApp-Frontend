@@ -1,6 +1,7 @@
 import "./About.css";
 
 export default function About() {
+  
   return (
     <section className="about-section">
       <div className="about-container">

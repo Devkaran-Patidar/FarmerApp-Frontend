@@ -56,7 +56,7 @@ export default function App() {
   );
   return (
     <div className="main_app">
-    <BrowserRouter>
+    <BrowserRouter> 
         <Routes>
                         {/* Main website */}
 

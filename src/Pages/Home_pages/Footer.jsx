@@ -1,5 +1,5 @@
 import "./Footer.css";
-import logo from "../../assets/logoName.webp";
+import Logo from "../../assets/logo/homelogo.png";
 import { Link } from "react-router-dom";
 export default function Footer() {
   return (
@@ -11,7 +11,11 @@ export default function Footer() {
 
         {/* <!-- Brand Section --> */}
         <div class="footer-col">
-            <h2 class="logo"><img src={logo} alt="logo" /></h2>
+              <div className="logo">
+                      <Link to="/">
+                        <img src={Logo} alt="logo" />
+                      </Link>
+                </div>
             <p>
                 AgroMart is a mobile platform that provides direct market 
                 access to farmers. We connect farmers with buyers and consumers 

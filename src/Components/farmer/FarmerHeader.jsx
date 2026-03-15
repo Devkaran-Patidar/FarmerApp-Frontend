@@ -1,5 +1,5 @@
 import "./FarmerHeader.css";
-import logo from "../../assets/logoName.webp";
+import logo from "../../assets/logo/homelogo.png";
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { AiFillProduct } from "react-icons/ai";

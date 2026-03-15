@@ -17,12 +17,11 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 2rem;
+  gap: 8rem;
   
   padding-bottom: 3rem;
-    /* padding: 4rem 1rem; */
-  /* background: url(../../assets/homepagebg.png) no-repeat center center/cover; */
-  background: linear-gradient(rgba(164, 229, 244, 0.41), #c5d6a071, #89ea89db);
+  background: url(../../assets/homebg1.jpg)no-repeat center center/cover;
+  /* background: linear-gradient(rgba(164, 229, 244, 0.41), #c5d6a071, #89ea89db); */
 }
 
 .hero-content {
@@ -40,6 +39,7 @@
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 2rem;
+  /* color: rgb(210, 234, 24); */
 }
 
 .buttons-h {
@@ -53,7 +53,7 @@
 
 .btn-h {
   padding: 1.2rem 4rem;
-  background-color: rgb(16, 165, 16);
+  background-color: rgb(15, 48, 213);
   border-radius: 20px;
   font-size: 1.2rem;
   font-weight: 600;
@@ -65,7 +65,7 @@
 }
 
 .btn-h:hover {
-  background-color: rgb(28, 78, 188);
+  background-color: rgb(44, 177, 32);
   transform: scale(1.03);
   /* border: none; */
 }
@@ -97,8 +97,15 @@
 }
 
 @media (max-width: 480px) {
+  .mainhome-hero{
+  /* background: url(../../assets/homebg2.jpeg)no-repeat center center/cover; */
+    gap: 4rem;
+  }
   .mainhome-heading {
     font-size: 1.8rem;
+  }
+  .buttons-h{
+    gap: 2rem;
   }
   .btn-h {
     padding: 1rem 2rem;

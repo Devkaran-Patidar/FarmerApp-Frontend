@@ -27,18 +27,22 @@
 }
 
 .logo {
-  /* border: 2px solid red; */
   width: 120px;
   height: 8vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .logo img {
+  height: 100%;
   width: 100%;
-  border-radius: 10px;
+  width: auto;       /* important */
+  object-fit: contain;
+  border-radius: 5px;
   transition: transform 0.3s ease;
+  transform-origin: center;
 }
 
 .logo img:hover {

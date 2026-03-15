@@ -1,9 +1,7 @@
 import "./Profile.css";
 import { useState, useEffect } from "react";
-// import logo from "../../assets/logoName.webp";
-import logo from "../assets/image.png";
 import { API_URL } from "../config";
-
+import { FaCircleUser } from "react-icons/fa6";
 
 export default function Profile() {
   const userId = localStorage.getItem("userId");
@@ -62,7 +60,7 @@ export default function Profile() {
                 src={
                   profile.avatar
                     ? `https://farmerapp-backend-jhru.onrender.com${profile.avatar}`
-                    : logo
+                    : <FaCircleUser />
                 }
                 alt={profile.username}
               />

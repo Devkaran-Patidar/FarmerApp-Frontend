@@ -1,6 +1,6 @@
 import "./Home_header.css";
-import Logo from "../../assets/logo-3.jpeg";
-// import Logo from "../../assets/logoName.webp";
+import Logo from "../../assets/logo/homelogo.png";
+// import Logo from "../../assets/logo/image.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FcAbout } from "react-icons/fc";

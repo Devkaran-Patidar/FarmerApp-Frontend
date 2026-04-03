@@ -8,7 +8,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import { CgProfile } from "react-icons/cg";
 import { BsCart3 } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
-
+import { RiNotification2Fill } from "react-icons/ri";
 export default function BuyerHeader({ islogin, setIslogin,setCartCount,cartCount }) {
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -44,6 +44,11 @@ export default function BuyerHeader({ islogin, setIslogin,setCartCount,cartCount
           Home
         </Link>
 
+        <Link to="/buyerhome/productlist" onClick={() => setMenuOpen(false)}>
+          <i className="fa-solid fa-search"></i>
+          products
+        </Link>
+
         <Link to="/buyerhome/Cart" onClick={() => setMenuOpen(false)}>
         {/* <i className="fa-solid fa-cart-arrow-down"></i> */}
           <span className="Cartcountte">{cartCount}</span>
@@ -66,6 +71,9 @@ export default function BuyerHeader({ islogin, setIslogin,setCartCount,cartCount
         <button className="logout-button" onClick={handleLogout}>
           Logout
         </button>
+        
+        <Link to="/buyerhome/notifications"> <RiNotification2Fill /></Link>
+
       </nav>
       </div>
       </div>

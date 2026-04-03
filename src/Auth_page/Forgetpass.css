@@ -1,0 +1,54 @@
+.forgetpass{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding-top: 5rem;
+    background-color: #f5f6fa;
+}
+
+.forgetform{
+    background: white;
+    padding: 2.5rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 320px;
+    height: 18rem;
+}
+
+.forgetform p{
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.forgetform input{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.forgetform input:focus{
+    border-color: #007bff;
+}
+
+.forgetform button{
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.forgetform button:hover{
+    background-color: #0056b3;
+}

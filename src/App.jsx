@@ -33,14 +33,16 @@ import FarmerEarnings from "./Pages/Farmer_pages/FarmerEarning.jsx";
 import ProductDetailsfarmer from "./Pages/Farmer_pages/ProductDetailsfarmer.jsx";
 
 // buyer 
-import ProductList from "./Pages/Buyer_pages/ProductList.jsx";
+// import ProductList from "./Pages/Buyer_pages/ProductList.jsx";
 import Cart from "./Pages/Buyer_pages/Cart.jsx";
 import ShopNow from "./Pages/Buyer_pages/ShopNow.jsx";
 import Reciept from "./Auth_page/Receipt.jsx";
 import OrderHistory from "./Pages/Buyer_pages/OrderHistory.jsx"
 import ProductDetails from "./Pages/Buyer_pages/ProductDetails.jsx";
 import ResetPassword from "./Auth_page/ResetPass.jsx";
-
+import Notifications from "./Pages/Buyer_pages/Notification.jsx";
+import BuyerHome from "./Pages/Buyer_pages/BuyerHome.jsx";
+import ProductList from "./Pages/Buyer_pages/ProductList.jsx";
 export default function App() {
   // const [islogin, setIslogin] =useState(false);
 
@@ -93,13 +95,15 @@ export default function App() {
                         {/* buyer */}
 
            <Route path="buyerhome" element={<BuyerLayout islogin={islogin} setIslogin={setIslogin}  setCartCount={setCartCount} cartCount={cartCount}/>}>
-            <Route index element={<ProductList setCartCount={setCartCount} cartCount={cartCount} />} />
+            <Route index element={<BuyerHome setCartCount={setCartCount} cartCount={cartCount} />} />
+             <Route path="productlist" element={<ProductList setCartCount={setCartCount} cartCount={cartCount} />} />
              <Route path="profile" element={<Profile />} />
             <Route path="cart" element={<Cart />} />
             <Route path="shop-now" element={<ShopNow />} />
             <Route path="receipt/:orderId" element={<Reciept/>} />
             <Route path="orderhistory" element={<OrderHistory/>} />
             <Route path="product/:id" element={<ProductDetails />} />
+            <Route path="notifications" element={<Notifications />} />
           </Route>
 
 

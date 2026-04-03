@@ -1,0 +1,39 @@
+
+.sections {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+.sections p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-list-section {
+  /* margin: 20px; */
+  padding-top: 0;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.product-list-section p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+
+.bottom_navbar {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  width: 20rem;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+}

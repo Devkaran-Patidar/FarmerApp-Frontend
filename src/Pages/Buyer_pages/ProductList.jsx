@@ -105,18 +105,6 @@ const ProductPage = ({setCartCount,cartCount}) => {
       
       <div className="product-navbar">        
         <div className="searchbar">
-          <select name="category" id="selectcat" value={category}
-          onChange={(e) => {
-            const selectedCategory = e.target.value;
-            setCategory(selectedCategory);
-            fetchProducts(searchTerm, selectedCategory);
-            }}>
-            <option value="">Select Category</option>
-            <option value="Fruits">Fruits</option>
-            <option value="Vegetables">Vegetables</option>
-            <option value="Flowers">Flowers</option>
-            <option value="Organic">Organic Product</option>
-          </select>
         <div className="search">
           <input type="text" name="searchbar" placeholder="Search here.."  value={searchTerm}onChange={(e) => {
           const value = e.target.value;

@@ -20,8 +20,11 @@
   gap: 8rem;
   
   padding-bottom: 3rem;
-  background: url(../../assets/homebg1.jpg)no-repeat center center/cover;
-  /* background: linear-gradient(rgba(164, 229, 244, 0.41), #c5d6a071, #89ea89db); */
+  /* background: url(../../assets/homebg1.jpg)no-repeat center center/cover; */
+  background: linear-gradient(to bottom, rgba(164, 229, 244, 0.41), #c5d6a071, #89ea89db);
+   background-size: cover;
+  background-position: center;
+ 
 }
 
 .hero-content {
@@ -36,6 +39,7 @@
 
 .mainhome-heading {
   font-size: 5rem;
+  color: rgb(15, 57, 11);
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 2rem;
@@ -53,7 +57,7 @@
 
 .btn-h {
   padding: 1.2rem 4rem;
-  background-color: rgb(15, 48, 213);
+  background-color: rgb(3, 41, 233);
   border-radius: 20px;
   font-size: 1.2rem;
   font-weight: 600;

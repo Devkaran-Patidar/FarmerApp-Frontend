@@ -18,8 +18,8 @@
     /* border: 2px solid rgb(84, 86, 84); */
     border-radius: 5px;
     padding: 10px 35px;
-    background-color: rgba(0, 0, 0, 0.868);
-    color: white;
+    /* background-color: rgba(0, 0, 0, 0.868); */
+    color: rgb(7, 7, 7);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +31,7 @@
 }
 
 .searchbar input{
-    color: white;
+    color: rgb(8, 8, 8);
     outline: none;
     text-decoration: none;
     width: 10rem;

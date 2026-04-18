@@ -13,10 +13,10 @@
 
 .buttons{
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 1rem;
 }
+
 .add-btn {
   background-color: #27ae60;
   color: white;
@@ -31,6 +31,38 @@
   background-color: #219150;
 }
 
+.edit-button {
+  /* flex: 1; */
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-button:hover {
+  background: #0d631f;
+  /* color: blue; */
+}
+
+.delete-button {
+  /* flex: 1; */
+  background: #ff9800;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-button:hover {
+  background: #d28107;
+  /* color: blue; */
+}
 .products-grid {
     /* border: 2px solid black ; */
     width:100%;

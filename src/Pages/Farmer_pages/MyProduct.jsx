@@ -95,9 +95,9 @@ export default function MyProducts() {
                   <div className="location">
                    📍  {item.location} | 🚚 {item.delivery_option}
                   </div>
-                  <div className="buttonns">
-                   <button className="cartt-btn" onClick={(e) =>{ e.stopPropagation();  navigate(`/farmerhome/editproduct/${item.id}`)  }}>Edit</button>
-                    <button className="buyy-btn"  onClick={(e) =>{ e.stopPropagation(); handleDelete(item.id)}}>Delete</button>
+                  <div className="buttons">
+                   <button className="edit-button" onClick={(e) =>{ e.stopPropagation();  navigate(`/farmerhome/editproduct/${item.id}`)  }}>Edit</button>
+                    <button className="delete-button"  onClick={(e) =>{ e.stopPropagation(); handleDelete(item.id)}}>Delete</button>
                  </div>
                 </div>
             </div>

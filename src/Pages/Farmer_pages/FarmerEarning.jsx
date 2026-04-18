@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../config";
+import { Bold } from "lucide-react";
 
 function FarmerEarning() {
   const [earning, setEarning] = useState(0);
@@ -56,10 +57,10 @@ function FarmerEarning() {
 
       <hr />
 
-      <p><b>Total Delivered Orders:</b> {deliveredOrders}</p>
+      <p><b>Total Delivered Orders: </b> <strong>{deliveredOrders}</strong></p>
 
       <p style={{ fontSize: "20px", color: "green" }}>
-        <b>Total Earnings:</b> ₹ {earning}
+        <b>Total Earnings:</b> ₹ <strong> {earning} /- </strong>
       </p>
 
       <button
@@ -67,7 +68,12 @@ function FarmerEarning() {
         style={{
           padding: "8px 15px",
           marginTop: "10px",
-          cursor: "pointer"
+          cursor: "pointer",
+          color: "white",
+          background: "#007bff",
+          border: "none",
+          borderRadius: "5px",
+        
         }}
       >
         Refresh

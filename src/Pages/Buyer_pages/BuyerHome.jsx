@@ -1,37 +1,45 @@
-import React, { useEffect, useState } from "react";
 import ProductList from "./ProductList";
 import Category from "./Category";
 import ProductBanner from "./ProductBanner";
 import BestSellers from "./BestSeller";
-
 import "./BuyerHome.css";
+import { BiSolidOffer } from "react-icons/bi";
+import { MdLocalMall } from "react-icons/md";
+
 const BuyerHome = (props) => {
- 
   return (
-    <div className="container">
+    <div className="buyerhome-container">
+      <div className="buyerhome-wrapper">
+        
+        {/* Section 1: Banner */}
+        <section className="buyerhome-section banner-section-wrapper">
+          <div className="section-header">
+          <h2>Special Offers</h2>
+            <BiSolidOffer className="section-icon offer-icon" />
+          </div>
+          <ProductBanner />
+        </section>
 
-      <div className="scroll-container">
-        {/* Section 1 */}
-        <div className="sections">
-            <p>Offers..</p>
-            <ProductBanner />
-          {/* <BannerSlider banners={data.banners} /> */}
-        </div>
-
-        {/* Section 2 */}
-        <div className="sections">
+        {/* Section 2: Categories */}
+        <section className="buyerhome-section category-section-wrapper">
+          <h2>Categories</h2>
           <Category />
-        </div>
+        </section>
 
-        {/* Section 3 */}
-        <div className="sections">
+        {/* Section 3: Best Sellers */}
+        <section className="buyerhome-section bestsellers-section-wrapper">
           <BestSellers />
-        </div>
+        </section>
 
-        <div className="product-list-section">
-            <p>Products</p>
-             <ProductList setCartCount={props.setCartCount} cartCount={props.cartCount} />
-        </div>
+        {/* Section 4: Product List */}
+        <section className="buyerhome-section product-list-section-wrapper">
+          <div className="section-header">
+            <h2>Fresh Products</h2>
+            <MdLocalMall className="section-icon product-icon" />
+          </div>
+          <ProductList setCartCount={props.setCartCount} cartCount={props.cartCount} />
+        </section>
+
       </div>
     </div>
   );

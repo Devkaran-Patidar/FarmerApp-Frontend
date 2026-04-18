@@ -6,10 +6,11 @@
 /* Slider */
 .banner-slider {
   display: flex;
-  gap: 15px;
-
+  gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px; /* For potential focus states */
 }
 
 /* Hide scrollbar */
@@ -24,12 +25,25 @@
 /* Card */
 .banner-card {
   position: relative;
-  min-width: 90%;
-  height: 200px;
+  min-width: 92%;
+  height: 240px;
   flex: 0 0 auto;
-
-  border-radius: 15px;
+  border-radius: 20px;
   overflow: hidden;
+  scroll-snap-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.banner-card:hover {
+  transform: scale(0.99);
+}
+
+@media (min-width: 768px) {
+  .banner-card {
+    min-width: 70%;
+    height: 300px;
+  }
 }
 
 /* Image */
@@ -37,50 +51,83 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.banner-card:hover img {
+  transform: scale(1.05);
 }
 
 /* Overlay */
-.banner-overlay {
+.banner-overlay-modern {
   position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-
+  inset: 0;
+  background: linear-gradient(
+    to right, 
+    rgba(0, 0, 0, 0.8) 0%, 
+    rgba(0, 0, 0, 0.4) 50%, 
+    transparent 100%
+  );
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 30px;
+  padding: 30px;
 }
 
-/* Text */
-.banner-overlay h2 {
-  font-size: 28px;
-  margin-bottom: 10px;
+/* Content */
+.banner-content {
+  max-width: 60%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
-.banner-overlay p {
-  font-size: 16px;
-  margin-bottom: 15px;
+.banner-badge {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.banner-content h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.banner-content p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
 }
 
 /* Button */
-.banner-overlay button {
-  width: fit-content;
-  padding: 8px 16px;
+.modern-btn {
+  margin-top: 10px;
+  padding: 10px 24px;
   border: none;
-  background: #22c55e;
+  background: #10b981;
   color: white;
-  border-radius: 6px;
+  font-weight: 600;
+  border-radius: 30px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
 }
 
-.banner-overlay button:hover {
-  background: #16a34a;
+.modern-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
 }
 
 /* 📱 Responsive */
@@ -89,11 +136,19 @@
     height: 200px;
   }
 
-  .banner-overlay h2 {
-    font-size: 20px;
+  .banner-content {
+    max-width: 85%;
   }
 
-  .banner-overlay p {
-    font-size: 14px;
+  .banner-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .banner-content p {
+    font-size: 0.9rem;
+  }
+  
+  .banner-overlay-modern {
+    padding: 20px;
   }
 }

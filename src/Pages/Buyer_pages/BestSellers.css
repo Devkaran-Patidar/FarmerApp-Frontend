@@ -1,21 +1,16 @@
 .seller-section {
   width: 100%;
-  padding: 15px;
-  background: #f9fafb;
-}
-
-.seller-section h3 {
-  margin-bottom: 12px;
-  font-size: 20px;
+  background: transparent;
 }
 
 /* 🔥 Horizontal slider */
 .seller-slider {
   display: flex;
-  gap: 12px;
-
+  gap: 16px;
   overflow-x: auto;
   scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 10px 4px 20px 4px; /* Padding for hover shadows */
 }
 
 /* ❌ Hide scrollbar */
@@ -29,32 +24,54 @@
 
 /* Card */
 .seller-card {
-  min-width: 220px;
+  min-width: 240px;
   flex: 0 0 auto;
-
   display: flex;
   align-items: center;
-  gap: 10px;
-
-  background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  gap: 12px;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  scroll-snap-align: start;
 }
 
 .seller-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
 }
 
-/* Image */
-.seller-card img {
-  width: 45px;
-  height: 45px;
+/* Image Wrapper */
+.seller-image-wrapper {
+  position: relative;
+}
+
+.seller-image-wrapper img {
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid #10b981;
+  padding: 2px;
+}
+
+.seller-rating-badge {
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #f59e0b; /* Yellow */
+  color: white;
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 10px;
+  white-space: nowrap;
+  border: 1px solid white;
 }
 
 /* Info */
@@ -64,38 +81,44 @@
 
 .seller-info h4 {
   margin: 0;
-  font-size: 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
 }
 
 .seller-info p {
-  margin: 0;
-  font-size: 12px;
-  color: gray;
+  margin: 4px 0 0 0;
+  font-size: 0.75rem;
+  color: #64748b;
 }
 
 /* Button */
-.seller-card button {
-  padding: 5px 10px;
+.visit-store-btn {
+  padding: 6px 12px;
   border: none;
-  background: #22c55e;
-  color: white;
-  border-radius: 6px;
-  font-size: 11px;
+  background: #f1f5f9;
+  color: #10b981;
+  font-weight: 600;
+  border-radius: 8px;
+  font-size: 0.75rem;
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.seller-card button:hover {
-  background: #16a34a;
+.seller-card:hover .visit-store-btn {
+  background: #10b981;
+  color: white;
 }
 
 /* 📱 Responsive */
 @media (max-width: 768px) {
   .seller-card {
-    min-width: 180px;
+    min-width: 220px;
+    padding: 12px;
   }
 
-  .seller-card img {
-    width: 40px;
-    height: 40px;
+  .seller-image-wrapper img {
+    width: 48px;
+    height: 48px;
   }
 }

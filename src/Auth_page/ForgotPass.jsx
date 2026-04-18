@@ -17,7 +17,6 @@ export default function ForgotPassword() {
 
     
     const data = await res.json();
-    // console.log(data)
     alert(data.message || data.error);
   };
 

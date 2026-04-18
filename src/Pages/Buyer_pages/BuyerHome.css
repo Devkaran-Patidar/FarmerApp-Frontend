@@ -1,39 +1,124 @@
-
-.sections {
-  margin: 20px;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
+/* Base container */
+.buyerhome-container {
+  background: #f8fafc; /* Premium off-white/light gray */
+  min-height: 100vh;
+  padding-bottom: 80px; /* Space for bottom navbar */
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
-.sections p {
+
+/* Scroll layout */
+.buyerhome-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Common section style */
+.buyerhome-section {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.02);
+}
+
+/* Section headings */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
   font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
-.product-list-section {
-  /* margin: 20px; */
-  padding-top: 0;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
+.section-icon {
+  font-size: 1.8rem;
 }
 
-.product-list-section p {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 15px;
+.offer-icon {
+  color: #f59e0b; /* Orange/Yellow for offers */
 }
 
+.product-icon {
+  color: #10b981; /* Green for fresh products */
+}
 
+@media (max-width: 768px) {
+  .buyerhome-wrapper {
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .buyerhome-section {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .section-header h2 {
+    font-size: 1.25rem;
+  }
+  
+  .section-icon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .buyerhome-wrapper {
+    width: 88%; /* ~90% as requested */
+    max-width: 1600px;
+    padding: 30px 0;
+    gap: 30px;
+  }
+
+  .buyerhome-section {
+    padding: 30px;
+  }
+}
+
+/* Bottom navbar from original */
 .bottom_navbar {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
-  width: 20rem;
-  padding: 10px 20px;
+
+  width: 90%;
+  max-width: 400px;
+
+  padding: 12px 24px;
+
   position: fixed;
-  bottom: 0%;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255,255,255,0.4);
+
+  z-index: 1000;
+}
+
+@media (max-width: 600px) {
+  .bottom_navbar {
+    width: 92%;
+    padding: 12px 20px;
+    bottom: 15px;
+  }
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import { FaPaperPlane } from "react-icons/fa";
 import "../Chatboat/chatboat.css";
 import { API_URL } from "../config";
+
 function Chatbot() {
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
@@ -40,8 +41,6 @@ function Chatbot() {
         message: msgToSend,
       });
 
-
-
       setTimeout(() => {
         if (res.data.type === "product") {
           setChat((prev) => [
@@ -77,48 +76,48 @@ function Chatbot() {
   };
 
   return (
-    <div style={styles.container}>
-
-      {/* Header */}
-      <div style={styles.header}>
-        AgroMart AI Assistant
-      </div>
-
+    <div className="chatbot-container">
       {/* Chat Area */}
-      <div style={styles.chatBox}>
+      <div className="chat-box">
+        {chat.length === 0 && (
+          <div style={{ textAlign: "center", color: "#64748b", margin: "auto", fontSize: "0.95rem", padding: "20px" }}>
+            <p style={{ fontSize: "2rem", marginBottom: "8px" }}>👋</p>
+            <p style={{ fontWeight: "600", color: "#334155", margin: "0 0 4px 0" }}>Welcome to AgroMart!</p>
+            <p style={{ margin: 0 }}>How can I help you today?</p>
+          </div>
+        )}
+
         {chat.map((msg, i) => (
           <div
             key={i}
-            style={{
-              ...styles.message,
-              alignSelf: msg.sender === "user" ? "flex-end" : "flex-start",
-              backgroundColor:
-                msg.sender === "user" ? "#dcf8c6" : "#ffffff",
-            }}
+            className={`message-wrapper ${msg.sender === "user" ? "user" : "bot"}`}
           >
-            {msg.text && <p>{msg.text}</p>}
+            <div className="message-bubble">
+              {msg.text && <p style={{ margin: 0 }}>{msg.text}</p>}
 
-            {/* Product Cards */}
-            {msg.products &&
-              msg.products.map((p, idx) => (
-                <div key={idx} style={styles.card}>
-                  <img src={p.image} alt="" style={styles.image} />
-                  <h4>{p.name}</h4>
-                  <p style={{ color: "green", fontWeight: "bold" }}>
-                    ₹{p.price}
-                  </p>
-                  <button style={styles.buyBtn}>Add to Cart</button>
-                </div>
-              ))}
-
-            <span style={styles.time}>{msg.time}</span>
+              {/* Product Cards */}
+              {msg.products &&
+                msg.products.map((p, idx) => (
+                  <div key={idx} className="product-card">
+                    <img src={p.image} alt="" className="product-image" />
+                    <h4 className="product-title">{p.name}</h4>
+                    <p className="product-price">₹{p.price}</p>
+                    <button className="product-buy-btn">Add to Cart</button>
+                  </div>
+                ))}
+            </div>
+            <span className="message-time">{msg.time}</span>
           </div>
         ))}
 
         {/* Typing Indicator */}
         {typing && (
-          <div style={{ ...styles.message, backgroundColor: "#fff" }}>
-            <p>🤖 Typing...</p>
+          <div className="message-wrapper bot">
+            <div className="message-bubble typing-indicator">
+              <div className="typing-dot"></div>
+              <div className="typing-dot"></div>
+              <div className="typing-dot"></div>
+            </div>
           </div>
         )}
 
@@ -126,12 +125,12 @@ function Chatbot() {
       </div>
 
       {/* Quick Options */}
-      <div style={styles.quickOptions}>
-        {["Customer Support", "Login/Register", "Discounts","Offers", "Delivery 🚚", "Payment 💳","Services"].map(
+      <div className="quick-options">
+        {["Customer Support", "Login/Register", "Discounts", "Offers", "Delivery 🚚", "Payment 💳", "Services"].map(
           (opt, i) => (
             <button
               key={i}
-              style={styles.optionBtn}
+              className="option-btn"
               onClick={() => handleQuickMessage(opt)}
             >
               {opt}
@@ -141,132 +140,24 @@ function Chatbot() {
       </div>
 
       {/* Input */}
-      <div style={styles.inputBox}>
+      <div className="input-area">
         <input
-          style={styles.input}
+          className="chat-input"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           placeholder="Ask for products, delivery..."
         />
-        <button style={styles.sendBtn} onClick={() => sendMessage()}>
+        <button 
+          className="send-btn" 
+          onClick={() => sendMessage()}
+          disabled={!message.trim()}
+        >
           <FaPaperPlane />
         </button>
       </div>
     </div>
   );
 }
-
-// 🎨 MODERN UI STYLES
-const styles = {
-  container: {
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    flexDirection: "column",
-    fontFamily: "Segoe UI",
-  },
-
-  header: {
-    background: "linear-gradient(90deg, #075E54, #0f9b8e)",
-    color: "white",
-    padding: "15px",
-    fontWeight: "bold",
-    textAlign: "center",
-    fontSize: "16px",
-  },
-
-  chatBox: {
-    flex: 1,
-    padding: "10px",
-    background: "#e5ddd5",
-    display: "flex",
-    flexDirection: "column",
-    overflowY: "auto",
-  },
-
-  message: {
-    maxWidth: "75%",
-    padding: "10px",
-    margin: "6px",
-    borderRadius: "10px",
-    position: "relative",
-    boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-  },
-
-  time: {
-    fontSize: "10px",
-    position: "absolute",
-    bottom: "5px",
-    right: "10px",
-    color: "gray",
-  },
-
-  inputBox: {
-    display: "flex",
-    padding: "10px",
-    background: "#fff",
-    borderTop: "1px solid #ddd",
-  },
-
-  input: {
-    flex: 1,
-    padding: "10px",
-    borderRadius: "20px",
-    border: "1px solid #ccc",
-    outline: "none",
-  },
-
-  sendBtn: {
-    marginLeft: "10px",
-    background: "#075E54",
-    color: "white",
-    border: "none",
-    borderRadius: "50%",
-    padding: "12px",
-    cursor: "pointer",
-  },
-
-  card: {
-    marginTop: "8px",
-    padding: "8px",
-    borderRadius: "8px",
-    background: "#fff",
-    boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-  },
-
-  image: {
-    width: "100%",
-    borderRadius: "6px",
-  },
-
-  buyBtn: {
-    background: "#28a745",
-    color: "white",
-    border: "none",
-    padding: "6px",
-    borderRadius: "5px",
-    cursor: "pointer",
-    width: "100%",
-  },
-
-  quickOptions: {
-    display: "flex",
-    flexWrap: "wrap",
-    padding: "6px",
-    background: "#e5ddd5",
-  },
-
-  optionBtn: {
-    margin: "4px",
-    padding: "6px 10px",
-    borderRadius: "15px",
-    border: "none",
-    background: "#25D366",
-    color: "white",
-    cursor: "pointer",
-    fontSize: "12px",
-  },
-};
 
 export default Chatbot;

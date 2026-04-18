@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./BestSellers.css";
+import { FaAward } from "react-icons/fa";
 
 const BestSellers = () => {
   const navigate = useNavigate();
@@ -24,11 +25,6 @@ const BestSellers = () => {
     const interval = setInterval(() => {
       if (slider) {
         slider.scrollLeft += 1;
-
-        // reset smoothly
-        // if (slider.scrollLeft >= slider.scrollWidth / 2) {
-        //   slider.scrollLeft = 0;
-        // }
       }
     }, 20);
 
@@ -37,7 +33,10 @@ const BestSellers = () => {
 
   return (
     <div className="seller-section">
-      <h3>Best Sellers</h3>
+      <div className="section-header">
+        <h2>Top Sellers</h2>
+        <FaAward className="section-icon text-yellow-500" style={{ color: "#eab308" }} />
+      </div>
 
       <div className="seller-slider" ref={sliderRef}>
         {loopSellers.map((seller, index) => (
@@ -46,12 +45,17 @@ const BestSellers = () => {
             key={index}
             onClick={() => navigate(`/seller/${seller.id}`, { state: seller })}
           >
-            <img src={seller.image} alt={seller.name} />
+            <div className="seller-image-wrapper">
+              <img src={seller.image} alt={seller.name} />
+              <div className="seller-rating-badge">⭐ {seller.rating}</div>
+            </div>
 
             <div className="seller-info">
               <h4>{seller.name}</h4>
-              <p>⭐ {seller.rating}</p>
+              <p>Verified Farmer</p>
             </div>
+            
+            <button className="visit-store-btn">Visit Store</button>
           </div>
         ))}
       </div>

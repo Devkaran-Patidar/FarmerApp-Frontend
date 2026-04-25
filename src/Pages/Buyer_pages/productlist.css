@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   padding-top: 1rem;
+  padding: 1rem;
 }
 
 /* ================= Sticky Navbar & Search ================= */
@@ -59,14 +60,16 @@
 /* ================= Modern Grid Layout ================= */
 .modern-grid {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  gap: 20px;
   width: 100%;
+  /* padding-left: 2rem; */
 }
 
 /* ================= Product Card ================= */
 .modern-product-card {
-  background: #ffffff;
+  background: #cde5d2;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -185,11 +188,14 @@
 }
 
 /* Location */
+.location-b{
+ padding: 1px;
+}
 .modern-location {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
+  /* flex-direction: column; */
+  gap: 28px;
+  /* margin-bottom: 20px; */
 }
 
 .loc-item {

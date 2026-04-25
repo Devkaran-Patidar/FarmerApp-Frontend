@@ -10,11 +10,11 @@ const BuyerHome = (props) => {
   return (
     <div className="buyerhome-container">
       <div className="buyerhome-wrapper">
-        
+
         {/* Section 1: Banner */}
         <section className="buyerhome-section banner-section-wrapper">
           <div className="section-header">
-          <h2>Special Offers</h2>
+            <h2>Special Offers</h2>
             <BiSolidOffer className="section-icon offer-icon" />
           </div>
           <ProductBanner />

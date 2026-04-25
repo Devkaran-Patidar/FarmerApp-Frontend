@@ -1,106 +1,154 @@
-/* Register Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-.signup-section {
-    display: flex;
-    justify-content: center;
-    align-items:start;
-    margin-top: 5rem;
-    min-height: 88vh;
-    /* background: linear-gradient(rgb(164, 229, 244), #ddf7a5, #4cac4c); */
-    /* padding-top: 8rem; */
-    padding: 2rem;
+.auth-page {
+  min-height: calc(100vh - 80px); /* adjust for header/footer */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+  padding: 40px 20px;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
 }
 
-.sign_up {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 2rem;
-    /* background-color: white; */
-    background-color: rgba(231, 226, 226, 0.656);
-
-    color: black;
-    border-radius: 12px;
-    padding: 1rem 3rem;
-    box-shadow:2px 2px 6px rgb(33, 31, 31);
-
-    /* box-shadow: 5px 5px 15px rgba(88, 84, 84, 0.5); */
-    width: 100%;
-    max-width: 400px;
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  padding: 40px 30px;
+  text-align: center;
+  animation: slideUpFade 0.5s ease-out;
 }
 
-.sign_up h1.text {
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    text-align: center;
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#signup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.2rem;
-    width: 100%;
+.auth-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+  margin-top: 0;
 }
 
-#signup select,
-#signup input {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 10px;
-    font-size: 1rem;
-    /* border: 1px solid #11d560; */
-    outline: none;
-    border: none;
-    text-decoration: none;
-    box-shadow:2px 2px 3px rgb(30, 29, 29);
-    color: black;
-
-    /* border: 1px solid black; */
-    /* box-shadow: 0px 0px 3px rgb(30, 29, 29); */
+.auth-subtitle {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 24px;
+  margin-top: -16px;
 }
 
-#signup input[type="file"] {
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    background-color: white;
-    color: black;
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-#signup button {
-    width: 100%;
-    background-color: rgb(4, 203, 34);
-    color: white;
-    padding: 10px 0;
+.auth-input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.auth-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  background: #f8fafc;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.auth-input::file-selector-button {
+  border: none;
+  background: #e2e8f0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #475569;
+  cursor: pointer;
+  margin-right: 12px;
+  font-weight: 500;
+}
+
+.auth-input:focus {
+  border-color: #22c55e;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 14px;
+  background: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 8px;
+}
+
+.auth-button:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+}
+
+.auth-button:active {
+  transform: translateY(1px);
+}
+
+.auth-links {
+  margin-top: 24px;
+  font-size: 0.9rem;
+  color: #64748b;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-links p {
+  margin: 0;
+}
+
+.auth-link {
+  color: #16a34a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.auth-link:hover {
+  color: #15803d;
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .auth-page {
+    padding: 20px 16px;
+  }
+  
+  .auth-card {
+    padding: 32px 24px;
     border-radius: 20px;
-    border: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
+  }
 
-#signup button:hover {
-    background-color: rgb(28, 78, 188);
-}
-
-#signup p {
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-#signup p .text1 {
-    color: rgb(13, 211, 89);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-#signup p .text1:hover {
-    text-decoration: underline;
-    color: blue;
+  .auth-title {
+    font-size: 1.5rem;
+  }
 }

@@ -9,11 +9,12 @@ import banner6 from "../../assets/Banners/image copy 6.png";
 import banner8 from "../../assets/Banners/image copy 8.png";
 import banner9 from "../../assets/Banners/image copy 9.png";
 import banner10 from "../../assets/Banners/image copy.png";
+import { useNavigate } from "react-router-dom";
 
 const ProductBanner = () => {
   const sliderRef = useRef(null);
   const banner_img = [banner2, banner4, banner5, banner6, banner8, banner9, banner10];
-  
+  const navigate = useNavigate();
   const loopBanners = [...banner_img, ...banner_img];
 
   // 🔥 Auto scroll
@@ -49,7 +50,7 @@ const ProductBanner = () => {
                 <span className="banner-badge">Hot Deal</span>
                 <h3>Fresh from Farm</h3>
                 <p>Up to 20% off on selected items</p>
-                <button className="modern-btn">Shop Now</button>
+                <button className="modern-btn" onClick={ () => navigate("productlist")}>Shop Now</button>
               </div>
             </div>
           </div>

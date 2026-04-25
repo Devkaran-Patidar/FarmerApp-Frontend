@@ -157,9 +157,9 @@ const ProductPage = ({setCartCount,cartCount}) => {
                 </span>
               </div>
 
-              <div className="location modern-location">
-                <div className="loc-item"><i className="fa-solid fa-location-dot"></i> {product.location}</div>
-                <div className="loc-item"><i className="fa-solid fa-truck"></i> {product.delivery_option}</div>
+              <div className="location-b  modern-location">
+                <div className="loc-item">📍 {product.location}</div>
+                <div className="loc-item">🚚 {product.delivery_option}</div>
               </div>
               
               <div className="buttonns modern-buttons">

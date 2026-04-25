@@ -29,17 +29,22 @@ export default function ResetPassword() {
   
   }
   return (
-    <div className="resetpass">
-      <form onSubmit={handleSubmit}>
-      <h2>Set New Password</h2>
-      <input
-        type="password"
-        placeholder="Enter new password"
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-      <button type="submit">Reset Password</button>
-    </form>
-    </div>
+    <section className="auth-page">
+      <div className="auth-card">
+        <h1 className="auth-title">Set New Password</h1>
+        <form className="auth-form" onSubmit={handleSubmit}>
+          <div className="auth-input-group">
+            <input
+              type="password"
+              className="auth-input"
+              placeholder="Enter new password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="auth-button">Reset Password</button>
+        </form>
+      </div>
+    </section>
   );
 }

@@ -81,52 +81,43 @@ export default function Register({ islogin, setIslogin }) {
   };
 
   return (
-    <section className="signup-section">
-      <div className="sign_up">
-        <h1 className="text">Register</h1>
-        <form id="signup" onSubmit={handleSignup} encType="multipart/form-data">
-          <select name="role" required>
-            <option value="">Select Role</option>
-            <option value="farmer">Farmer</option>
-            <option value="buyer">Buyer</option>
-          </select>
+    <section className="auth-page">
+      <div className="auth-card">
+        <h1 className="auth-title">Create Account</h1>
+        <form className="auth-form" onSubmit={handleSignup} encType="multipart/form-data">
+          <div className="auth-input-group">
+            <select name="role" className="auth-input" required defaultValue="">
+              <option value="" disabled>Select Role</option>
+              <option value="farmer">Farmer</option>
+              <option value="buyer">Buyer</option>
+            </select>
+          </div>
+          <div className="auth-input-group">
+            <input type="text" name="username" className="auth-input" placeholder="Full Name" required />
+          </div>
+          <div className="auth-input-group">
+            <input type="email" name="email" className="auth-input" placeholder="Email Address" required />
+          </div>
+          <div className="auth-input-group">
+            <input type="file" name="avatar" className="auth-input" accept="image/*" required />
+          </div>
+          <div className="auth-input-group">
+            <input type="tel" name="number" className="auth-input" placeholder="Phone Number" pattern="[0-9]{10}" minLength={10} maxLength={10} required />
+          </div>
+          <div className="auth-input-group">
+            <input type="password" name="password" className="auth-input" placeholder="Password" required />
+          </div>
 
-          <input
-            type="text"
-            name="username"
-            placeholder="Type Your full Name"
-            required
-          />
+          <button type="submit" className="auth-button">Sign Up</button>
 
-          <input type="email" name="email" placeholder="Type Your Email" required />
-
-          <input type="file" name="avatar" accept="image/*" required />
-
-          <input
-            type="tel"
-            name="number"
-            placeholder="Enter your Phone No."
-            pattern="[0-9]{10}"
-            minLength={10}
-            maxLength={10}
-            required
-          />
-
-          <input
-            type="password"
-            name="password"
-            placeholder="Type Your Password"
-            required
-          />
-
-          <button type="submit">Submit</button>
-
-          <p>
-            Already have an Account?{" "}
-            <Link to="/login" className="text1">
-              Login
-            </Link>
-          </p>
+          <div className="auth-links">
+            <p>
+              Already have an account?{" "}
+              <Link to="/login" className="auth-link">
+                Login
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     </section>

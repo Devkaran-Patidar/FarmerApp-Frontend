@@ -92,8 +92,8 @@ export default function MyProducts() {
                   </div>
 
                     {/* <p className="harvest">Harvest Date: {item.harvest_date}</p> */}
-                  <div className="location">
-                   📍  {item.location} | 🚚 {item.delivery_option}
+                  <div className="location-f">
+                   📍  {item.location}  |  🚚 {item.delivery_option}
                   </div>
                   <div className="buttons">
                    <button className="edit-button" onClick={(e) =>{ e.stopPropagation();  navigate(`/farmerhome/editproduct/${item.id}`)  }}>Edit</button>

@@ -56,36 +56,38 @@ export default function Login({ islogin, setIslogin }) {
   };
 
   return (
-    <section className="login-section">
-      <div className="login_page">
-         <div className="login-form">
-           <h1 className="text">Login</h1>
-        <form id="login" onSubmit={handleLogin}>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Type Your Email"
-            required
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Type Your Password"
-            required
-          />
-          <button type="submit">Submit</button>
-           </form>
-         </div>
-          <span className="forgot"><Link to="/forgotpass">Forgot Password</Link></span>
+    <section className="auth-page">
+      <div className="auth-card">
+        <h1 className="auth-title">Welcome Back</h1>
+        <form className="auth-form" onSubmit={handleLogin}>
+          <div className="auth-input-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              className="auth-input"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div className="auth-input-group">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="auth-input"
+              placeholder="Password"
+              required
+            />
+          </div>
+          <button type="submit" className="auth-button">Sign In</button>
+        </form>
+        <div className="auth-links">
+          <Link to="/forgotpass" className="auth-link">Forgot Password?</Link>
           <p>
-            Don't have an Account?
-            <Link to="/register" className="text1">
-              Sign up
-            </Link>
+            Don't have an account? <Link to="/register" className="auth-link">Sign up</Link>
           </p>
-       
+        </div>
       </div>
     </section>
   );

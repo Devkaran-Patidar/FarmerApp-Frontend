@@ -43,6 +43,7 @@ import ResetPassword from "./Auth_page/ResetPass.jsx";
 import Notifications from "./Pages/Buyer_pages/Notification.jsx";
 import BuyerHome from "./Pages/Buyer_pages/BuyerHome.jsx";
 import ProductList from "./Pages/Buyer_pages/ProductList.jsx";
+import Visitstore from "./Pages/Buyer_pages/Visitstore.jsx";
 export default function App() {
   // const [islogin, setIslogin] =useState(false);
 
@@ -88,7 +89,6 @@ export default function App() {
             <Route path="farmerorders" element={<FarmerOrders/>} />
             <Route path="farmerearning" element={<FarmerEarnings/>} />
             <Route path="product/:id" element={<ProductDetailsfarmer />} />
-
           </Route>
 
 
@@ -104,6 +104,8 @@ export default function App() {
             <Route path="orderhistory" element={<OrderHistory/>} />
             <Route path="product/:id" element={<ProductDetails />} />
             <Route path="notifications" element={<Notifications />} />
+            <Route path="visitstore" element={<Visitstore/>} />
+
           </Route>
 
 

@@ -1,8 +1,10 @@
 /* Base container */
 .buyerhome-container {
-  background: #f8fafc; /* Premium off-white/light gray */
+  background: #f8fafc;
+  /* Premium off-white/light gray */
   min-height: 100vh;
-  padding-bottom: 80px; /* Space for bottom navbar */
+  padding-bottom: 80px;
+  /* Space for bottom navbar */
   font-family: 'Inter', 'Segoe UI', sans-serif;
   overflow-x: hidden;
 }
@@ -25,7 +27,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.02);
+  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
 /* Section headings */
@@ -49,11 +51,13 @@
 }
 
 .offer-icon {
-  color: #f59e0b; /* Orange/Yellow for offers */
+  color: #f59e0b;
+  /* Orange/Yellow for offers */
 }
 
 .product-icon {
-  color: #10b981; /* Green for fresh products */
+  color: #10b981;
+  /* Green for fresh products */
 }
 
 @media (max-width: 768px) {
@@ -70,7 +74,7 @@
   .section-header h2 {
     font-size: 1.25rem;
   }
-  
+
   .section-icon {
     font-size: 1.5rem;
   }
@@ -78,7 +82,8 @@
 
 @media (min-width: 1024px) {
   .buyerhome-wrapper {
-    width: 88%; /* ~90% as requested */
+    width: 88%;
+    /* ~90% as requested */
     max-width: 1600px;
     padding: 30px 0;
     gap: 30px;
@@ -110,7 +115,7 @@
   -webkit-backdrop-filter: blur(12px);
   border-radius: 50px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 
   z-index: 1000;
 }

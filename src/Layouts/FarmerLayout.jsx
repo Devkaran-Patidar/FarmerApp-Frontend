@@ -1,33 +1,21 @@
-import { Outlet,Navigate } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import FarmerHeader from "../Components/farmer/FarmerHeader.jsx";
+import "./FarmerLayout.css";
 
-const FarmerLayout = ({islogin ,setIslogin}) => {
-   const role = localStorage.getItem("role");
-   const id = localStorage.getItem("userId");
-   console.log("islogin:", islogin);
-  console.log("role:", role);
-  console.log("userId:",id)
+const FarmerLayout = ({ islogin, setIslogin }) => {
+  const role = localStorage.getItem("role");
+  
   if (!islogin || role !== "farmer") {
     return <Navigate to="/" replace />;
   }
+
   return (
-    // <>
-    //   <main>
-    //     <Outlet />
-    //   </main>
-    //   {/* <FarmerFooter /> */}
-    // </>
-
-    < >
-      
+    <div className="farmer-layout-container">
       <FarmerHeader islogin={islogin} setIslogin={setIslogin} />
-      {/* <FarmerSiderBar /> */}
-
-      <main >
+      <main className="farmer-main-content">
         <Outlet />
       </main>
-
-    </>
+    </div>
   );
 };
 

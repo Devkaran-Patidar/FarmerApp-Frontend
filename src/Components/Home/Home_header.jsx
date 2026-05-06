@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">
+        <div className="logoo">
           <Link to="/">
             <img src={Logo} alt="logo" />
           </Link>

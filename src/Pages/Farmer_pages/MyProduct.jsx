@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./MyProducts.css";
 import { API_URL } from "../../config";
+import { FiPlus, FiEdit2, FiTrash2, FiMapPin, FiTruck } from "react-icons/fi";
 
 export default function MyProducts() {
   const [products, setProducts] = useState([]);
@@ -51,55 +52,73 @@ export default function MyProducts() {
   };
 
   return (
-    <div className="myproducts-container">
-      {/* <h2>My Products</h2> */}
+    <div className="farmer-page-container">
+      <div className="farmer-page-header">
+        <div>
+          <h2 className="farmer-page-title">My Products</h2>
+          <p className="farmer-page-subtitle">Manage your inventory and product listings</p>
+        </div>
+        <button
+          className="farmer-btn-primary"
+          onClick={() => navigate("/farmerhome/addproduct")}
+        >
+          <FiPlus /> Add Product
+        </button>
+      </div>
 
-      <button
-        className="add-btn"
-        onClick={() => navigate("/farmerhome/addproduct")}
-      >
-        + Add Product
-      </button>
-
-      <div className="products-grid">
+      <div className="farmer-products-grid">
         {products.length === 0 ? (
-          <p className="no-product">No Products Found</p>
+          <div className="farmer-empty-state">
+            <p>No Products Found</p>
+            <button onClick={() => navigate("/farmerhome/addproduct")}>Create your first product</button>
+          </div>
         ) : (
           products.map((item) => (
-        
-          <div className="product-card"     key={item.id}
-          onClick={() => navigate(`/farmerhome/product/${item.id}`)}
-              style={{ cursor: "pointer" }}>
-              <div className="image-wrapper">
-               <img 
-  src={
-    item.images?.length > 0
-      ? item.images[0].image_url
-      : "https://via.placeholder.com/300"
-  }
-  alt={item.name}
-/>
-                  <span className="badge">{item.quality_grade} ⭐</span>
+            <div 
+              className="farmer-product-card" 
+              key={item.id}
+              onClick={() => navigate(`/farmerhome/product/${item.id}`)}
+            >
+              <div className="farmer-product-image">
+                <img 
+                  src={
+                    item.images?.length > 0
+                      ? item.images[0].image_url
+                      : "https://via.placeholder.com/300"
+                  }
+                  alt={item.name}
+                />
+                <span className="farmer-badge-grade">Grade {item.quality_grade}</span>
+              </div>
+
+              <div className="farmer-product-content">
+                <h3 className="farmer-product-name">{item.name}</h3>
+
+                <div className="farmer-product-price-row">
+                  <span className="farmer-product-price">₹{item.price_per_unit} <small>/{item.unit_type}</small></span>
+                  <span className="farmer-product-stock">{item.available_quantity} {item.unit_type} left</span>
                 </div>
 
-                <div className="card-body">
-                    <h2>{item.name}</h2>
-                    {/* <p className="description">  {item.description} </p> */}
-
-                  <div className="price-stockk">
-                      <span className="pricee">₹{item.price_per_unit} <small>/{item.unit_type}</small></span>
-                   <span className="stockk">{item.available_quantity} {item.unit_type} Available  </span>
-                  </div>
-
-                    {/* <p className="harvest">Harvest Date: {item.harvest_date}</p> */}
-                  <div className="location-f">
-                   📍  {item.location}  |  🚚 {item.delivery_option}
-                  </div>
-                  <div className="buttons">
-                   <button className="edit-button" onClick={(e) =>{ e.stopPropagation();  navigate(`/farmerhome/editproduct/${item.id}`)  }}>Edit</button>
-                    <button className="delete-button"  onClick={(e) =>{ e.stopPropagation(); handleDelete(item.id)}}>Delete</button>
-                 </div>
+                <div className="farmer-product-meta">
+                  <span><FiMapPin /> {item.location}</span>
+                  <span><FiTruck /> {item.delivery_option}</span>
                 </div>
+
+                <div className="farmer-product-actions">
+                  <button 
+                    className="farmer-btn-icon edit" 
+                    onClick={(e) => { e.stopPropagation(); navigate(`/farmerhome/editproduct/${item.id}`); }}
+                  >
+                    <FiEdit2 /> Edit
+                  </button>
+                  <button 
+                    className="farmer-btn-icon delete"  
+                    onClick={(e) => { e.stopPropagation(); handleDelete(item.id); }}
+                  >
+                    <FiTrash2 /> Delete
+                  </button>
+                </div>
+              </div>
             </div>
           ))
         )}

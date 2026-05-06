@@ -6,6 +6,7 @@ import { AiFillProduct } from "react-icons/ai";
 import { FaShoppingBag } from "react-icons/fa";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+import { FiMenu, FiX, FiLogOut } from "react-icons/fi"; // Better icons
 
 export default function FarmerHeader({ islogin, setIslogin }) {
   const navigate = useNavigate();
@@ -18,53 +19,44 @@ export default function FarmerHeader({ islogin, setIslogin }) {
   };
 
   return (
-    <header className="header">
-      <div className="header-container">
-                <div className="logo">
-                  <Link to="/">
-                    <img src={logo} alt="logo" />
-                  </Link>
-                </div>
-      
+    <header className="farmer-header">
+      <div className="farmer-header-container">
+        <div className="farmer-logo">
+          <Link to="/">
+            <img src={logo} alt="AgroMart Logo" />
+          </Link>
+        </div>
 
-      <div className="navbar" >
-        <div className="baricon"
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <i className="fa-solid fa-bars"></i>
-      </div>
-      
+        <div className="farmer-mobile-toggle" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </div>
 
-      <nav className={menuOpen ? "active" : ""}>
-        {/* <Link to="/farmerhome" onClick={() => setMenuOpen(false)}>
-          Dashboard
-        </Link> */}
+        <nav className={`farmer-nav ${menuOpen ? "active" : ""}`}>
+          <Link to="/farmerhome" onClick={() => setMenuOpen(false)}>
+            <AiFillProduct className="nav-icon" />
+            My Products
+          </Link>
 
-        <Link to="/farmerhome" onClick={() => setMenuOpen(false)}>
-          <AiFillProduct />
-          My Products
-        </Link>
+          <Link to="/farmerhome/farmerorders" onClick={() => setMenuOpen(false)}>
+            <FaShoppingBag className="nav-icon" />
+            Orders
+          </Link>
+          
+          <Link to="/farmerhome/farmerearning" onClick={() => setMenuOpen(false)}>
+            <GiTakeMyMoney className="nav-icon" />
+            Earnings
+          </Link>
 
-        <Link to="/farmerhome/farmerorders" onClick={() => setMenuOpen(false)}>
-          <FaShoppingBag />
-          Orders
-        </Link>
-        
-        <Link to="/farmerhome/farmerearning" onClick={() => setMenuOpen(false)}>
-        <GiTakeMyMoney />
-          Earning
-        </Link>
+          <Link to="/farmerhome/profile" onClick={() => setMenuOpen(false)}>
+            <CgProfile className="nav-icon" />
+            Profile
+          </Link>
 
-         <Link to="/farmerhome/profile" onClick={() => setMenuOpen(false)}>
-         <CgProfile />
-          Profile
-        </Link>
-
-        <button className="logout-button" onClick={handleLogout}>
-          Logout
-        </button>
-      </nav>
-      </div>
+          <button className="farmer-logout-btn" onClick={handleLogout}>
+            <FiLogOut className="nav-icon" />
+            Logout
+          </button>
+        </nav>
       </div>
     </header>
   );

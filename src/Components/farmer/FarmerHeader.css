@@ -1,62 +1,87 @@
+/* Farmer Header Base */
 .farmer-header {
-  height: 12vh;
+  height: 70px;
   width: 100%;
+  background-color: #ffffff;
+  color: #1e293b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.farmer-header-container {
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0rem 3rem;
-  background-color: rgb(37, 78, 64);
-  color: white;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 10000;
 }
 
-.logo img {
-  height: 45px;
+.farmer-logo img {
+  height: 40px;
+  object-fit: contain;
 }
 
 /* Navigation */
-.hamburger p {
-    display: none;
-}
-
-.nav-bar {
-  font-size: 1.1rem;
-  font-weight: bold;
+.farmer-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 32px;
 }
 
-.nav-bar a {
+.farmer-nav a {
   text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
-
-.nav-bar a:hover {
-  color: #2ecc71;
-}
-
-.logout-button {
-  background-color: green;
-  color: white;
-  padding: 8px 20px;
+  color: #64748b;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  padding: 8px 12px;
   border-radius: 8px;
+}
+
+.farmer-nav a:hover {
+  color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+/* Logout Button */
+.farmer-logout-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
   border: none;
+  font-weight: 600;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
 }
 
-.logout-button:hover {
-  background-color: #331ed3;
+.farmer-logout-btn:hover {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
 }
 
-/* Hamburger */
-.hamburger {
+/* Mobile Toggle */
+.farmer-mobile-toggle {
   display: none;
   font-size: 1.8rem;
+  color: #1e293b;
   cursor: pointer;
 }
 
@@ -64,27 +89,53 @@
 /* Responsive Design */
 /* ========================= */
 
+@media (max-width: 1024px) {
+  .farmer-nav {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 768px) {
+  .farmer-header {
+    height: 60px;
+  }
+  
+  .farmer-header-container {
+    padding: 0 16px;
+  }
 
-  .hamburger {
+  .farmer-mobile-toggle {
     display: block;
+    z-index: 1001;
   }
 
-  .nav-bar {
-    position: absolute;
-    top: 12vh;
-    right: 0;
+  .farmer-nav {
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: #ffffff;
     flex-direction: column;
-    background-color: rgb(37, 78, 64);
-    width: 200px;
-    padding: 20px;
-    gap: 1.5rem;
-
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
+    align-items: flex-start;
+    padding: 30px 20px;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.05);
+    transition: right 0.3s ease-in-out;
+    gap: 20px;
   }
 
-  .nav-bar.active {
-    transform: translateX(0);
+  .farmer-nav.active {
+    right: 0;
+  }
+
+  .farmer-nav a {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .farmer-logout-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: auto; /* Pushes to bottom */
   }
 }

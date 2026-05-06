@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_URL } from "../../config";
-import { Bold } from "lucide-react";
+import "./FarmerEarning.css";
+import { FiDollarSign, FiPackage, FiRefreshCw } from "react-icons/fi";
 
 function FarmerEarning() {
   const [earning, setEarning] = useState(0);
@@ -15,6 +16,7 @@ function FarmerEarning() {
 
   const fetchEarnings = async () => {
     try {
+      setLoading(true);
       const token = localStorage.getItem("access_token");
 
       const res = await axios.get(
@@ -37,48 +39,56 @@ function FarmerEarning() {
   };
 
   if (loading) {
-    return <h3>Loading earnings...</h3>;
+    return <div className="farmer-page-container"><p>Loading earnings dashboard...</p></div>;
   }
 
   if (error) {
-    return <h3 style={{ color: "red" }}>{error}</h3>;
+    return <div className="farmer-page-container"><h3 style={{ color: "red" }}>{error}</h3></div>;
   }
 
   return (
-    <section style={{
-      maxWidth: "500px",
-      margin: "30px auto",
-      padding: "20px",
-      border: "1px solid #ccc",
-      borderRadius: "10px",
-      boxShadow: "0 0 10px rgba(0,0,0,0.1)"
-    }}>
-      <h2>Farmer Earnings Dashboard</h2>
-
-      <hr />
-
-      <p><b>Total Delivered Orders: </b> <strong>{deliveredOrders}</strong></p>
-
-      <p style={{ fontSize: "20px", color: "green" }}>
-        <b>Total Earnings:</b> ₹ <strong> {earning} /- </strong>
-      </p>
-
-      <button
-        onClick={fetchEarnings}
-        style={{
-          padding: "8px 15px",
-          marginTop: "10px",
-          cursor: "pointer",
-          color: "white",
-          background: "#007bff",
-          border: "none",
-          borderRadius: "5px",
+    <div className="farmer-page-container">
+      <div className="farmer-earning-dashboard">
         
-        }}
-      >
-        Refresh
-      </button>
-    </section>
+        <div className="farmer-page-header">
+          <div>
+            <h2 className="farmer-page-title">Earnings Dashboard</h2>
+            <p className="farmer-page-subtitle">Overview of your revenue and completed orders</p>
+          </div>
+        </div>
+
+        <div className="farmer-earning-cards-container">
+          
+          <div className="farmer-earning-card">
+            <div className="farmer-earning-icon money">
+              <FiDollarSign />
+            </div>
+            <div className="farmer-earning-info">
+              <span className="farmer-earning-label">Total Earnings</span>
+              <h3 className="farmer-earning-value">₹{earning.toLocaleString()}</h3>
+            </div>
+          </div>
+
+          <div className="farmer-earning-card">
+            <div className="farmer-earning-icon orders">
+              <FiPackage />
+            </div>
+            <div className="farmer-earning-info">
+              <span className="farmer-earning-label">Delivered Orders</span>
+              <h3 className="farmer-earning-value">{deliveredOrders}</h3>
+            </div>
+          </div>
+
+        </div>
+
+        <div className="farmer-earning-actions">
+          <button className="farmer-btn-refresh" onClick={fetchEarnings}>
+            <FiRefreshCw /> Refresh Data
+          </button>
+        </div>
+
+      </div>
+    </div>
   );
 }
 

@@ -1,0 +1,113 @@
+.farmer-orders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.farmer-order-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0,0,0,0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.farmer-order-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.farmer-order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.farmer-order-id {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  background: #f8fafc;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.farmer-order-date {
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.farmer-order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.farmer-order-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.farmer-order-row .label {
+  color: #64748b;
+}
+
+.farmer-order-row .value {
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.farmer-order-amount {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #10b981;
+}
+
+.farmer-order-actions {
+  margin-top: auto;
+}
+
+.farmer-btn-status {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.farmer-btn-status.delivered {
+  background-color: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+}
+
+.farmer-btn-status.delivered:hover {
+  background-color: #d1fae5;
+}
+
+.farmer-btn-status.pending {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.farmer-btn-status.pending:hover {
+  background-color: #fee2e2;
+}

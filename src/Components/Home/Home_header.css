@@ -25,14 +25,18 @@
   padding: 0 3rem;
 }
 
-.logo {
-  height: 8vh;
+.logoo {
+  /* height: 3vh; */
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 12%;
+  border-radius: 15px;
+  height: 7vh;
+  overflow: hidden;
 }
 
-.logo img {
+.logoo img {
   height: 100%;
   width: auto;
   object-fit: contain;
@@ -40,7 +44,7 @@
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.logo img:hover {
+.logoo img:hover {
   transform: scale(1.05);
 }
 

@@ -2,7 +2,7 @@ import "./Profile.css";
 import { useState, useEffect } from "react";
 import { API_URL } from "../config";
 import { FaCircleUser, FaEnvelope, FaPhone, FaUserShield, FaPen } from "react-icons/fa6";
-import loader from "../assets/loder/preloader.gif";
+import preloader from "../assets/loader/preloader.gif";
 export default function Profile() {
   const userId = localStorage.getItem("userId");
   const accessToken = localStorage.getItem("access_token");
@@ -51,7 +51,7 @@ export default function Profile() {
       <div className="profile-container">
         {loading ? (
           <div className="profile-loading">
-            <img src={loader} alt="loading..." className="loader-gif" />
+            <img src={preloader} alt="loading..." className="loader-gif" />
           </div>
         ) : profile ? (
           <>

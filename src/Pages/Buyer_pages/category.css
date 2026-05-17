@@ -42,7 +42,8 @@
   padding: 12px;
   border-radius: 24px; /* Pill-like/Squircle shape */
   background: #ffffff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.092);
   border: 1px solid rgba(0, 0, 0, 0.03);
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);

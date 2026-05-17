@@ -197,6 +197,7 @@
   letter-spacing: 0.5px;
   text-transform: uppercase;
   width: fit-content;
+  padding: 5px;
 }
 
 /* Specific badge colors based on text (now using classes) */

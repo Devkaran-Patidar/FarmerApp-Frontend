@@ -1,129 +1,208 @@
-/* Base container */
+/* ===== Base ===== */
+
 .buyerhome-container {
-  background: #f8fafc;
-  /* Premium off-white/light gray */
   min-height: 100vh;
-  padding-bottom: 80px;
-  /* Space for bottom navbar */
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+  /* Modern soft mesh gradient background */
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(212, 250, 224, 0.7) 0px, transparent 50%),
+    radial-gradient(at 90% 20%, rgba(224, 242, 254, 0.7) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(254, 240, 245, 0.7) 0px, transparent 50%);
+  padding-bottom: 90px;
+  font-family: "Inter", "Outfit", "Segoe UI", sans-serif;
   overflow-x: hidden;
 }
 
-/* Scroll layout */
 .buyerhome-wrapper {
+  width: min(100%, 1600px);
+  margin: 0 auto;
+  padding: 20px 16px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 16px;
-  width: 100%;
-  margin: 0 auto;
+  gap: 32px;
 }
 
-/* Common section style */
+/* ===== Sections ===== */
+
 .buyerhome-section {
-  background-color: #ffffff;
-  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 28px;
   padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.02);
 }
 
-/* Section headings */
+.buyerhome-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 100%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.buyerhome-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 20px 50px -15px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== Headers ===== */
+
 .section-header {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header h2,
+.section-title {
+  margin: 0 0 24px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .section-header h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
   margin: 0;
-  letter-spacing: -0.5px;
 }
 
 .section-icon {
   font-size: 1.8rem;
+  flex-shrink: 0;
+  padding: 8px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .offer-icon {
   color: #f59e0b;
-  /* Orange/Yellow for offers */
+  background: linear-gradient(135deg, #fffbeb, #fef3c7);
 }
 
 .product-icon {
   color: #10b981;
-  /* Green for fresh products */
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
 }
 
-@media (max-width: 768px) {
-  .buyerhome-wrapper {
-    padding: 12px;
-    gap: 16px;
-  }
+/* ===== Bottom Navbar ===== */
 
-  .buyerhome-section {
-    padding: 16px;
-    border-radius: 16px;
-  }
-
-  .section-header h2 {
-    font-size: 1.25rem;
-  }
-
-  .section-icon {
-    font-size: 1.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .buyerhome-wrapper {
-    width: 88%;
-    /* ~90% as requested */
-    max-width: 1600px;
-    padding: 30px 0;
-    gap: 30px;
-  }
-
-  .buyerhome-section {
-    padding: 30px;
-  }
-}
-
-/* Bottom navbar from original */
 .bottom_navbar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+
+  width: min(92%, 420px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  width: 90%;
-  max-width: 400px;
-
-  padding: 12px 24px;
-
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 12px 22px;
 
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-radius: 999px;
+
   border: 1px solid rgba(255, 255, 255, 0.4);
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05);
 
   z-index: 1000;
 }
 
-@media (max-width: 600px) {
+/* ===== Tablet ===== */
+
+@media (min-width: 768px) {
+  .buyerhome-wrapper {
+    padding: 32px 24px;
+    gap: 40px;
+  }
+
+  .buyerhome-section {
+    padding: 32px;
+    border-radius: 32px;
+  }
+
+  .section-header h2,
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-icon {
+    font-size: 2rem;
+    padding: 10px;
+  }
+}
+
+/* ===== Desktop ===== */
+
+@media (min-width: 1024px) {
+  .buyerhome-wrapper {
+    width: 90%;
+    padding: 40px 0;
+    gap: 48px;
+  }
+
+  .buyerhome-section {
+    padding: 40px;
+  }
+}
+
+/* ===== Small Mobile ===== */
+
+@media (max-width: 480px) {
+  .buyerhome-wrapper {
+    padding: 16px 12px;
+    gap: 20px;
+  }
+
+  .buyerhome-section {
+    padding: 20px;
+    border-radius: 24px;
+  }
+
+  .section-header {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .section-header h2,
+  .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  .section-icon {
+    font-size: 1.5rem;
+    padding: 6px;
+    border-radius: 10px;
+  }
+
   .bottom_navbar {
-    width: 92%;
-    padding: 12px 20px;
-    bottom: 15px;
+    width: 94%;
+    padding: 10px 18px;
+    bottom: 12px;
   }
 }

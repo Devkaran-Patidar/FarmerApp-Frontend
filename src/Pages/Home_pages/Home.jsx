@@ -7,6 +7,7 @@ import Product from "./Product";
 import "./Home.css"
 import Chatbot from "../../Chatboat/chatboat";
 import { BsChatQuoteFill } from "react-icons/bs";
+import ThreeScene from "./ThreeScene";
 
 export default function Home() {
   const [openChat, setOpenChat] = useState(false);
@@ -28,6 +29,7 @@ export default function Home() {
   return (
     <div className="mainhome-container">
       <div className="mainhome-hero">
+        <ThreeScene />
         <div className="hero-content">
           <h1 className="mainhome-heading">
             <span className="highlight-text">Fresh Farm</span> <br />
@@ -47,18 +49,18 @@ export default function Home() {
         <div className="hero-image-wrapper">
           <div className="slider-container">
             {heroImages.map((img, index) => (
-              <img 
+              <img
                 key={index}
-                src={img} 
-                alt={`Fresh Produce ${index + 1}`} 
-                className={`hero-image ${index === currentImg ? "active" : ""}`} 
+                src={img}
+                alt={`Fresh Produce ${index + 1}`}
+                className={`hero-image ${index === currentImg ? "active" : ""}`}
               />
             ))}
-            
+
             <div className="slider-dots">
               {heroImages.map((_, index) => (
-                <span 
-                  key={index} 
+                <span
+                  key={index}
                   className={`dot ${index === currentImg ? "active-dot" : ""}`}
                   onClick={() => setCurrentImg(index)}
                 ></span>

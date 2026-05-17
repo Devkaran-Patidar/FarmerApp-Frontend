@@ -1,43 +1,48 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-// const API_BASE = "http://127.0.0.1:8000"; 
-import "./productlist.css"
-import { API_URL } from "../../config";
-import { useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const ProductPage = ({setCartCount,cartCount}) => {
+import "./productlist.css";
+import { API_URL } from "../../config";
+
+const ProductPage = ({ setCartCount, cartCount }) => {
   const [products, setProducts] = useState([]);
-  const token = localStorage.getItem("access_token");
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
   const [cartItems, setCartItems] = useState([]);
-  // Fetch all products
+
+  const token = localStorage.getItem("access_token");
+
+  const navigate = useNavigate();
   const location = useLocation();
- useEffect(() => {
-  const selectedCategory = location.state?.category || "";
 
-  setCategory(selectedCategory);
+  useEffect(() => {
+    const selectedCategory = location.state?.category || "";
 
-  fetchProducts(searchTerm, selectedCategory);
+    setCategory(selectedCategory);
 
-  if (token) {
-    fetchCart();
-  }
-}, []);
+    fetchProducts(searchTerm, selectedCategory);
 
-  const fetchProducts = async (query ="",cat = "") => {
+    if (token) {
+      fetchCart();
+    }
+  }, []);
+
+  // ===== Fetch Products =====
+  const fetchProducts = async (query = "", cat = "") => {
     try {
-      const res = await fetch(`${API_URL}/api/farmer/allproducts/?search=${query}&category=${cat}`);
+      const res = await fetch(
+        `${API_URL}/api/farmer/allproducts/?search=${query}&category=${cat}`
+      );
+
       const data = await res.json();
+
       setProducts(data);
-      // console.log(data)
     } catch (err) {
       console.error("Error fetching products", err);
     }
   };
 
-  // Fetch cart count
+  // ===== Fetch Cart =====
   const fetchCart = async () => {
     try {
       const res = await fetch(`${API_URL}/api/farmer/view-cart/`, {
@@ -47,6 +52,7 @@ const ProductPage = ({setCartCount,cartCount}) => {
       });
 
       const data = await res.json();
+
       if (data.success) {
         setCartCount(data.cart_count);
       }
@@ -55,118 +61,162 @@ const ProductPage = ({setCartCount,cartCount}) => {
     }
   };
 
-
-  // Add To Cart
+  // ===== Add To Cart =====
   const handleAddToCart = async (productId) => {
-  if (!token) {
-    alert("Please login first");
-    return;
-  }
+    if (!token) {
+      alert("Please login first");
+      return;
+    }
 
-  const res = await fetch(`${API_URL}/api/farmer/add-to-cart/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      product_id: productId,
-      quantity: 1,
-    }),
-  });
-
-  if (res.ok) {
-    // alert("Added to cart!");
-    // setCartCount +=1; 
-    fetchCart();
-    navigate("/buyerhome"); 
-    setCartItems((prev) => [...prev, productId]);
-  
-  }
-};
-
-  // Buy Now
-  const handleBuyNow = (product) => {
-  if (!token) {
-    alert("Please login first");
-    return;
-  }
-
-  navigate("/buyerhome/shop-now", {
-    state: {
-      items: [
-        {
-          id: product.id,
-          product: product,
-          quantity: 1,
+    try {
+      const res = await fetch(`${API_URL}/api/farmer/add-to-cart/`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      ],
-      total: product.price_per_unit,
-    },
-  });
-};
+        body: JSON.stringify({
+          product_id: productId,
+          quantity: 1,
+        }),
+      });
 
+      if (res.ok) {
+        fetchCart();
+
+        setCartItems((prev) => [...prev, productId]);
+
+        navigate("/buyerhome");
+      }
+    } catch (err) {
+      console.error("Error adding to cart", err);
+    }
+  };
+
+  // ===== Buy Now =====
+  const handleBuyNow = (product) => {
+    if (!token) {
+      alert("Please login first");
+      return;
+    }
+
+    navigate("/buyerhome/shop-now", {
+      state: {
+        items: [
+          {
+            id: product.id,
+            product,
+            quantity: 1,
+          },
+        ],
+        total: product.price_per_unit,
+      },
+    });
+  };
 
   return (
-    <div className="allproduct-page">
-      
-      <div className="product-navbar sticky-navbar">        
-        <div className="searchbar modern-searchbar">
-          <div className="search-input-wrapper">
-            <i className="fa-solid fa-magnifying-glass search-icon" style={{ color: '#64748b' }}></i>
-            <input 
-              type="text" 
-              name="searchbar" 
-              placeholder="Search for fresh farm products..."  
-              value={searchTerm}
-              onChange={(e) => {
-                const value = e.target.value;
-                setSearchTerm(value);
-                fetchProducts(value, category);  
-              }} 
-            />
-          </div>
+    <div className="marketplace-page">
+
+      {/* ===== Search Bar ===== */}
+      <div className="marketplace-navbar">
+        <div className="marketplace-searchbox">
+
+          <i className="fa-solid fa-magnifying-glass marketplace-search-icon"></i>
+
+          <input
+            type="text"
+            placeholder="Search fresh farm products..."
+            value={searchTerm}
+            onChange={(e) => {
+              const value = e.target.value;
+
+              setSearchTerm(value);
+
+              fetchProducts(value, category);
+            }}
+          />
         </div>
       </div>
 
-      <div className="allproduct modern-grid">
+      {/* ===== Product Grid ===== */}
+      <div className="marketplace-grid">
+
         {products.map((product) => (
-          <div key={product.id} className="product-card modern-product-card" 
-            onClick={() => navigate(`/buyerhome/product/${product.id}`)}>
-            
-            <div className="image-wrapper modern-image-wrapper">
-              {product.images && product.images.length > 0 ? (
-                <img src={product.images[0].image_url} alt={product.name} />
+          <div
+            key={product.id}
+            className="marketplace-card"
+            onClick={() =>
+              navigate(`/buyerhome/product/${product.id}`)
+            }
+          >
+
+            {/* ===== Product Image ===== */}
+            <div className="marketplace-image-box">
+
+              {product.images?.length > 0 ? (
+                <img
+                  src={product.images[0].image_url}
+                  alt={product.name}
+                />
               ) : (
-                <div className="no-image-placeholder">
+                <div className="marketplace-empty-image">
                   <i className="fa-solid fa-image"></i>
                 </div>
               )}
-              <span className="modern-badge">⭐ {product.quality_grade}</span>
+
+              <span className="marketplace-quality-badge">
+                ⭐ {product.quality_grade}
+              </span>
             </div>
-            
-            <div className="card-body modern-card-body">
-              <h2 className="product-title" title={product.name}>{product.name}</h2>
-              
-              <div className="price-stockk modern-price-stock">
-                <span className="pricee modern-price">
-                  ₹{product.price_per_unit} <small className="unit-type">/{product.unit_type}</small>
-                </span>
-                <span className="stockk modern-stock">
-                  <span className="stock-dot"></span> {product.available_quantity} {product.unit_type} Available
-                </span>
+
+            {/* ===== Product Content ===== */}
+            <div className="marketplace-content">
+
+              {/* Product Title */}
+              <h3 className="marketplace-title">
+                {product.name}
+              </h3>
+
+              {/* Price & Stock */}
+              <div className="marketplace-meta">
+
+                <div className="marketplace-price">
+                  ₹{product.price_per_unit}
+                  <span>/{product.unit_type}</span>
+                </div>
+
+                <div className="marketplace-stock">
+                  <span className="marketplace-stock-indicator"></span>
+
+                  {product.available_quantity} {product.unit_type}
+                </div>
               </div>
 
-              <div className="location-b  modern-location">
-                <div className="loc-item">📍 {product.location}</div>
-                <div className="loc-item">🚚 {product.delivery_option}</div>
+              {/* Product Info */}
+              <div className="marketplace-details">
+
+                <p>
+                  📍 {product.location}
+                </p>
+
+                <p>
+                  🚚 {product.delivery_option}
+                </p>
               </div>
-              
-              <div className="buttonns modern-buttons">
-                <button 
-                  className={`modern-cart-btn ${cartItems.includes(product.id) ? 'in-cart' : ''}`}  
-                  onClick={(e) => {  
-                    e.stopPropagation(); 
+
+              {/* Buttons */}
+              <div className="marketplace-actions">
+
+                {/* Add To Cart */}
+                <button
+                  className={`marketplace-cart-btn ${
+                    cartItems.includes(product.id)
+                      ? "active-cart"
+                      : ""
+                  }`}
+                  onClick={(e) => {
+                    e.stopPropagation();
+
                     if (cartItems.includes(product.id)) {
                       navigate("/buyerhome/cart");
                     } else {
@@ -174,18 +224,31 @@ const ProductPage = ({setCartCount,cartCount}) => {
                     }
                   }}
                 >
-                  <i className={`fa-solid ${cartItems.includes(product.id) ? 'fa-cart-arrow-down' : 'fa-cart-plus'}`}></i>
-                  {cartItems.includes(product.id) ? "Go to Cart" : "Add to Cart"}
+                  <i
+                    className={`fa-solid ${
+                      cartItems.includes(product.id)
+                        ? "fa-cart-arrow-down"
+                        : "fa-cart-plus"
+                    }`}
+                  ></i>
+
+                  {cartItems.includes(product.id)
+                    ? "Go to Cart"
+                    : "Add to Cart"}
                 </button>
-                <button 
-                  className="modern-buy-btn"  
+
+                {/* Buy Now */}
+                <button
+                  className="marketplace-buy-btn"
                   onClick={(e) => {
-                    handleBuyNow(product); 
                     e.stopPropagation();
+
+                    handleBuyNow(product);
                   }}
                 >
                   Buy Now
                 </button>
+
               </div>
             </div>
           </div>

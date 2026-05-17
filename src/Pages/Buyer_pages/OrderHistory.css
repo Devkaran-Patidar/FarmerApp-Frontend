@@ -1,5 +1,3 @@
-
-
 .orderhistory-page {
     min-height: 100vh;
     display: flex;
@@ -26,8 +24,8 @@
     border-radius: 18px;
     box-shadow: 0 4px 24px 0 rgba(80, 80, 120, 0.10), 0 1.5px 4px 0 rgba(80, 80, 120, 0.08);
     padding: 2.5rem 2rem 2rem 2rem;
-    min-width: 320px;
-    max-width: 350px;
+    min-width: 220px;
+    max-width: 250px;
     flex: 1 1 320px;
     display: flex;
     flex-direction: column;

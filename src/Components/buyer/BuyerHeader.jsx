@@ -66,7 +66,7 @@ export default function BuyerHeader({ islogin, setIslogin, setCartCount, cartCou
             <span className="notification-dot"></span>
           </Link>
 
-          <Link to="/buyerhome/Cart" className="action-icon-btn cart-btn">
+          <Link to="/buyerhome/Cart" className="action-icon-btn ">
             <BsCart3 />
             {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
           </Link>

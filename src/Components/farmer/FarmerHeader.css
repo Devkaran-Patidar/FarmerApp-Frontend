@@ -58,12 +58,12 @@
 
 /* Logout Button */
 .farmer-logout-btn {
-  background-color: #ef4444;
+  background-color: #069917;
   color: white;
   padding: 10px 20px;
   border-radius: 10px;
   border: none;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;

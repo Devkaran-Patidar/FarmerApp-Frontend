@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const ProductBanner = () => {
   const sliderRef = useRef(null);
-  const banner_img = [ banner6, banner8, banner5, banner9, banner4];
+  const banner_img = [banner6, banner8, banner5, banner9, banner4];
   const navigate = useNavigate();
   const loopBanners = [...banner_img, ...banner_img];
 
@@ -22,7 +22,7 @@ const ProductBanner = () => {
         // Scroll by the width of one card + gap (16px)
         const cardWidth = slider.querySelector('.banner-card')?.offsetWidth || 0;
         const gap = 16;
-        
+
         // If we reached the end, snap back to start
         if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
           slider.scrollTo({ left: 0, behavior: "smooth" });
@@ -46,7 +46,7 @@ const ProductBanner = () => {
                 <span className="banner-badge">Hot Deal</span>
                 <h3>Fresh from Farm</h3>
                 <p>Up to 20% off on selected items</p>
-                <button className="modern-btn" onClick={ () => navigate("productlist")}>Shop Now</button>
+                <button className="modern-btn" onClick={() => navigate("productlist")}>Shop Now</button>
               </div>
             </div>
           </div>

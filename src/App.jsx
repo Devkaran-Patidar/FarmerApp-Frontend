@@ -104,7 +104,7 @@ export default function App() {
             <Route path="orderhistory" element={<OrderHistory/>} />
             <Route path="product/:id" element={<ProductDetails />} />
             <Route path="notifications" element={<Notifications />} />
-            <Route path="visitstore" element={<Visitstore/>} />
+            <Route path="visitstore/:id" element={<Visitstore/>} />
 
           </Route>
 

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { API_URL } from "../config";
 import { FaCircleUser, FaEnvelope, FaPhone, FaUserShield, FaPen } from "react-icons/fa6";
 import preloader from "../assets/loader/preloader.gif";
+import { cloudname } from "../config";
 export default function Profile() {
   const userId = localStorage.getItem("userId");
   const accessToken = localStorage.getItem("access_token");
@@ -37,6 +38,7 @@ export default function Profile() {
         const data = await res.json();
         setProfile(data);
         setLoading(false);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching profile:", error);
         setLoading(false);
@@ -60,7 +62,7 @@ export default function Profile() {
               <div className="profile-image-wrapper">
                 {profile.avatar ? (
                   <img
-                    src={`https://farmerapp-backend-jhru.onrender.com${profile.avatar}`}
+                    src={profile.avatar.startsWith('http') ? profile.avatar : `https://res.cloudinary.com/${cloudname}/${profile.avatar}`}
                     alt={profile.username}
                     className="profile-avatar"
                   />

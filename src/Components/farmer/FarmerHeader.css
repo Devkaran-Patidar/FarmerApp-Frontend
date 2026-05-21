@@ -24,6 +24,7 @@
 
 .farmer-logo img {
   height: 40px;
+  width: auto;
   object-fit: contain;
 }
 
@@ -98,6 +99,10 @@
 @media (max-width: 768px) {
   .farmer-header {
     height: 60px;
+  }
+
+  .farmer-logo img {
+    height: 34px;
   }
   
   .farmer-header-container {

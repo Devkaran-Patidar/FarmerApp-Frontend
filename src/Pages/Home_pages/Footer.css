@@ -1,10 +1,10 @@
 
 
 .footerr {
-    min-height: 90vh;
+    min-height: auto;
     background-color: #0f172a;
     color: #cbd5e1;
-    padding: 60px 8%;
+    padding: 56px 8% 28px;
 }
 
 .footer-container {
@@ -41,6 +41,19 @@
 
 .footer-col ul li a:hover {
     color: #22c55e;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 8px;
+}
+
+.logo img {
+    height: 54px;
+    width: auto;
+    object-fit: contain;
 }
 
 .logo {
@@ -95,7 +108,11 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .footer {
-        padding: 40px 5%;
+    .footerr {
+        padding: 40px 5% 24px;
+    }
+
+    .logo img {
+        height: 46px;
     }
 }

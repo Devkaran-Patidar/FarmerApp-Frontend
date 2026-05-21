@@ -23,7 +23,8 @@
 
 /* Logo */
 .logo-container .header-logo {
-  height: 45px;
+  height: 42px;
+  width: auto;
   object-fit: contain;
   cursor: pointer;
   border-radius: 10px;
@@ -158,6 +159,10 @@
     padding: 12px 16px;
   }
 
+  .logo-container .header-logo {
+    height: 38px;
+  }
+
   .desktop-logout-btn {
     display: none;
   }
@@ -177,7 +182,7 @@
   /* Mobile Dropdown */
   .nav-links {
     position: absolute;
-    top: 70px;
+    top: 100%;
     left: 0;
     width: 100%;
     background: #ffffff;
@@ -200,6 +205,15 @@
     padding: 14px 10px;
     border-bottom: 1px solid #f1f5f9;
     font-size: 1.05rem;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .action-icon-btn {
+    width: 34px;
+    height: 34px;
   }
 
   .mobile-logout-btn {

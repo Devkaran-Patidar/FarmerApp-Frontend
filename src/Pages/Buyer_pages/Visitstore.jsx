@@ -11,6 +11,7 @@ export default function Visitstore() {
     const [storeData, setStoreData] = useState({ farmer: null, products: [] });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    const [expandedDescriptions, setExpandedDescriptions] = useState({});
 
     useEffect(() => {
         let isMounted = true;
@@ -67,6 +68,14 @@ export default function Visitstore() {
 
     const handleProductClick = (productId) => {
         navigate(`/buyerhome/product/${productId}`);
+    };
+
+    const toggleDescription = (productId, event) => {
+        event.stopPropagation();
+        setExpandedDescriptions((prev) => ({
+            ...prev,
+            [productId]: !prev[productId],
+        }));
     };
 
     return (
@@ -198,16 +207,29 @@ export default function Visitstore() {
                                                 <i className="fa-solid fa-location-dot"></i>
                                                 {product.location || "Location not listed"}
                                             </span>
-                                            <span>
+                                            {/* <span>
                                                 <i className="fa-solid fa-truck"></i>
                                                 {product.delivery_option || "Delivery info unavailable"}
-                                            </span>
+                                            </span> */}
                                         </div>
 
                                         {product.description ? (
-                                            <p className="store-product-description">
-                                                {product.description}
-                                            </p>
+                                            <div className="store-product-description-wrapper">
+                                                <p className="store-product-description">
+                                                    {product.description.length > 50 && !expandedDescriptions[product.id]
+                                                        ? `${product.description.substring(0, 50)}...`
+                                                        : product.description}
+                                                </p>
+                                                {product.description.length > 50 && (
+                                                    <button
+                                                        type="button"
+                                                        className="store-desc-toggle-btn"
+                                                        onClick={(event) => toggleDescription(product.id, event)}
+                                                    >
+                                                        {expandedDescriptions[product.id] ? "View Less" : "View More"}
+                                                    </button>
+                                                )}
+                                            </div>
                                         ) : null}
 
                                         <button

@@ -48,7 +48,7 @@ const BestSellers = () => {
         const token = localStorage.getItem("access_token");
 
         const response = await fetch(
-          `${API_URL}/api/farmer/topbuyers`,
+          `${API_URL}/api/farmer/topbuyers/`,
           {
             headers: {
               Authorization: `Bearer ${token}`,

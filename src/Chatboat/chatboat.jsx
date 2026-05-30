@@ -65,7 +65,7 @@ function Chatbot() {
       }, 800); // simulate AI delay
 
     } catch (err) {
-      console.error(err);
+      // console.error(err);
       setTyping(false);
     }
   };

@@ -322,6 +322,31 @@
 	font-size: 14px;
 }
 
+.store-product-description-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.store-desc-toggle-btn {
+	border: none;
+	background: none;
+	color: #1e7a3f;
+	font-weight: 700;
+	font-size: 13px;
+	padding: 0;
+	margin-top: 4px;
+	cursor: pointer;
+	text-decoration: underline;
+	display: inline-block;
+	transition: color 0.2s ease;
+}
+
+.store-desc-toggle-btn:hover {
+	color: #2f9e54;
+}
+
 .store-view-btn {
 	border: 0;
 	border-radius: 14px;

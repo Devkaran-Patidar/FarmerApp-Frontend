@@ -44,6 +44,9 @@ import Notifications from "./Pages/Buyer_pages/Notification.jsx";
 import BuyerHome from "./Pages/Buyer_pages/BuyerHome.jsx";
 import ProductList from "./Pages/Buyer_pages/ProductList.jsx";
 import Visitstore from "./Pages/Buyer_pages/Visitstore.jsx";
+import ScrollToTop from "./ScrollToTop.jsx";
+
+
 export default function App() {
   // const [islogin, setIslogin] =useState(false);
 
@@ -60,6 +63,10 @@ export default function App() {
   return (
     <div className="main_app">
     <BrowserRouter> 
+      
+      {/* scroll to top */}
+      <ScrollToTop />
+
         <Routes>
                         {/* Main website */}
 
@@ -69,7 +76,7 @@ export default function App() {
             <Route path="features" element={<Features />} />
             <Route path="product" element={<Product />} />
             <Route path="contact" element={<Contact />} />
-            <Route path="contact/contactform" element={<ContactForm />} />
+            <Route path="contactform" element={<ContactForm />} />
 
 
             <Route  path="login"  element={<Login islogin={islogin} setIslogin={setIslogin} />} />

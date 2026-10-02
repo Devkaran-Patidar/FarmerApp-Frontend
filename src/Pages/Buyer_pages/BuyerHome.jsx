@@ -30,7 +30,7 @@ const BuyerHome = ({ setCartCount, cartCount }) => {
 
         {/* Best Sellers */}
         <section className="buyerhome-section">
-          <h2 className="section-title">Best Sellers</h2>
+          {/* <h2 className="section-title">Best Sellers</h2> */}
           <BestSellers />
         </section>
 

@@ -91,7 +91,7 @@ export default function Receipt() {
     newWindow.document.write(`
       <html>
         <head>
-          <title>Receipt</title>
+          <title>Receipt</title> 
           <style>
             body { font-family: 'Inter', Arial, sans-serif; padding: 20px; color: #334155; }
             .receipt-logo { text-align: center; color: #10b981; margin-bottom: 10px; display: flex; justify-content: center;}
